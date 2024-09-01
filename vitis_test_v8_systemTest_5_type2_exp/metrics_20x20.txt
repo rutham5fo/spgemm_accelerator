@@ -1,0 +1,11 @@
+Mat_num = 1		| Density(%) = 5		| Valid(bool) = 1		| cycles = 66		| runtime(mili_sec) = 24		| memory_access_count = 19		| caching_count = 19
+Mat_num = 2		| Density(%) = 10		| Valid(bool) = 1		| cycles = 93		| runtime(mili_sec) = 72		| memory_access_count = 34		| caching_count = 34
+Mat_num = 3		| Density(%) = 20		| Valid(bool) = 1		| cycles = 107		| runtime(mili_sec) = 119		| memory_access_count = 56		| caching_count = 56
+Mat_num = 4		| Density(%) = 30		| Valid(bool) = 1		| cycles = 139		| runtime(mili_sec) = 146		| memory_access_count = 80		| caching_count = 80
+Mat_num = 5		| Density(%) = 40		| Valid(bool) = 1		| cycles = 162		| runtime(mili_sec) = 217		| memory_access_count = 89		| caching_count = 89
+Mat_num = 6		| Density(%) = 50		| Valid(bool) = 1		| cycles = 168		| runtime(mili_sec) = 289		| memory_access_count = 96		| caching_count = 96
+Mat_num = 7		| Density(%) = 60		| Valid(bool) = 1		| cycles = 192		| runtime(mili_sec) = 376		| memory_access_count = 100		| caching_count = 100
+Mat_num = 8		| Density(%) = 70		| Valid(bool) = 1		| cycles = 211		| runtime(mili_sec) = 262		| memory_access_count = 99		| caching_count = 99
+Mat_num = 9		| Density(%) = 80		| Valid(bool) = 1		| cycles = 219		| runtime(mili_sec) = 314		| memory_access_count = 100		| caching_count = 100
+Mat_num = 10		| Density(%) = 90		| Valid(bool) = 1		| cycles = 235		| runtime(mili_sec) = 333		| memory_access_count = 100		| caching_count = 100
+Mat_num = 11		| Density(%) = 100		| Valid(bool) = 1		| cycles = 241		| runtime(mili_sec) = 348		| memory_access_count = 100		| caching_count = 100
