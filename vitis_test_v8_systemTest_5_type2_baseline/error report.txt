@@ -1,0 +1,116 @@
+ERROR: [XFORM 203-123] Cannot stream  'pus_top(bool, bool&, unsigned char, unsigned char, procVecType*, stream<procType, 20>*, stream<memRep, 3>*, stream<memReq, 3>*, stream<memRep, 3>*, stream<memReq, 3>*, stream<memRep, 3>*)pu.58': the stream channel does not have data producer function.
+ERROR: [HLS 200-1715] Encountered problem during source synthesis
+ERROR: [HLS 200-70] Pre-synthesis failed.
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 9 seconds. CPU system time: 1 seconds. Elapsed time: 23.161 seconds; current allocated memory: 757.391 MB.
+INFO: [HLS 200-112] Total CPU user time: 11 seconds. Total CPU system time: 3 seconds. Total elapsed time: 25.67 seconds; peak allocated memory: 1.099 GB.
+
+
+================================================================================
+
+void pus_top(
+    #ifndef __SYNTHESIS__
+    bool& cont,
+    #endif
+    bool start_comp,
+    bool& comp_done,
+    vx_uint8 active_pus,
+    vx_uint8 batch,
+    procVecType matrixC[COL_LEN],
+    procTstream streamA[NUM_PE],
+    repTstream ext_repIN[NUM_PE],
+    reqTstream ext_reqIN[NUM_PE],
+    repTstream ext_repOUT[NUM_PE],
+    reqTstream ext_reqOUT[NUM_PE],
+    repTstream init_stream[NUM_PE]
+)
+{
+    #pragma HLS interface s_axilite port=start_comp
+    #pragma HLS interface s_axilite port=comp_done
+    #pragma HLS interface s_axilite port=active_pus
+    #pragma HLS interface s_axilite port=batch
+    #pragma HLS interface bram port=matrixC storage_type=ram_s2p
+    #pragma HLS interface axis port=streamA
+    #pragma HLS interface axis port=ext_repIN
+    #pragma HLS interface axis port=ext_reqIN
+    #pragma HLS interface axis port=ext_repOUT
+    #pragma HLS interface axis port=ext_reqOUT
+    #pragma HLS interface axis port=init_stream
+
+    // Streams
+    static repTstream int_repOUT[NUM_PE];
+    static reqTstream int_reqOUT[NUM_PE];
+
+    static procUnit pu[NUM_PE];
+
+    vx_uint8 pus_done = 0;
+    procVecType tmp_row;
+    proc_t tmp_out;
+
+    #ifndef __SYNTHESIS__
+    bool ret_ctrl = false;
+    #endif
+
+    //PRINT("\n\n TOP: Initializing PUs | ready = %i", ready);
+    /*
+    dummy_producer(
+        int_reqOUT
+        int_repOUT
+    );
+    */
+    if (start_comp || CHECK_CONT) {
+        comp_done = false;
+        #ifndef __SYNTHESIS__
+        if (!CHECK_CONT) {
+            INIT_PUS: for (vx_uint8 i = 0; i < NUM_PE; i++) {
+                pu[i].initialize(streamA[i], init_stream[i]);
+            }
+        }
+        #else
+        INIT_PUS: for (vx_uint8 i = 0; i < NUM_PE; i++) {
+            pu[i].initialize(streamA[i], init_stream[i]);
+        }
+        #endif
+        RUN_ELEMS: while (pus_done != active_pus) {
+            run_elems(
+                #ifndef __SYNTHESIS__
+                ret_ctrl,
+                #endif
+                pus_done,
+                pu,
+                int_repOUT,
+                int_reqOUT,
+                ext_repIN,
+                ext_reqIN,
+                ext_repOUT,
+                ext_reqOUT
+            );
+            #ifndef __SYNTHESIS__
+            if (ret_ctrl) {
+                PRINT("\n PUS_TOP: Transferring control to test bench");
+                return;
+            }
+            #endif
+        }
+
+        COPY_OUTPUT_MATC: for (vx_uint8 i = 0; i < NUM_PE; i++) {
+            OUTPUT_STREAM_LOOP: for (vx_uint8 j=0; j < ROW_LEN; j++){
+                #pragma HLS pipeline II=1
+                if (!((pu[i].regs_sel_curBuf) ? pu[i].memPC1.empty() : pu[i].memPC0.empty())) {
+                    tmp_out = (pu[i].regs_sel_curBuf) ? pu[i].memPC1.read() : pu[i].memPC0.read();
+                    INSERT_VECdata(tmp_row, j) = INSERT_data(tmp_out);
+                    INSERT_VECindex(tmp_row, j) = INSERT_index(tmp_out);
+                    tmp_row.len++;
+                    PRINT("\n NAME: %i | out[%i] = %i", pu[i].regs_name, INSERT_index(tmp_out), INSERT_data(tmp_out));
+                }
+                else {
+                    PRINT("\n RUN_PU: Copying tmp_out[%i] of len = %i to matC_mem", i, matrixC[(batch*NUM_PE)+i].len);
+                    matrixC[(batch*NUM_PE)+i] = tmp_row;
+                    tmp_row.len = 0;
+                    break;
+                }
+            }
+        }
+
+        comp_done = true;
+    }
+}

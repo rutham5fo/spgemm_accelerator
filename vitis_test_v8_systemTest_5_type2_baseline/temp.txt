@@ -1,0 +1,2732 @@
+MAIN: Input File opended for reading
+ SPLIT_BATCH_ROWS: splitting batch rows for batch = 0
+ ROWB_ACCESS_COUNT: batch_row_count[0] = 1
+ ROWB_ACCESS_COUNT: batch_row_count[1] = 2
+ ROWB_ACCESS_COUNT: batch_row_count[2] = 2
+ ROWB_ACCESS_COUNT: batch_row_count[3] = 3
+ ROWB_ACCESS_COUNT: batch_row_count[4] = 1
+ ROWB_ACCESS_COUNT: batch_row_count[5] = 3
+ ROWB_ACCESS_COUNT: batch_row_count[6] = 1
+ ROWB_ACCESS_COUNT: batch_row_count[7] = 1
+ ROWB_ACCESS_COUNT: batch_row_count[8] = 3
+ ROWB_ACCESS_COUNT: batch_row_count[9] = 1
+ ROWB_ACCESS_COUNT: batch_row_count[10] = 1
+ ROWB_ACCESS_COUNT: batch_row_count[11] = 3
+ ROWB_ACCESS_COUNT: batch_row_count[12] = 2
+ ROWB_ACCESS_COUNT: batch_row_count[13] = 3
+ ROWB_ACCESS_COUNT: batch_row_count[14] = 2
+ ROWB_ACCESS_COUNT: batch_row_count[15] = 4
+ ROWB_ACCESS_COUNT: batch_row_count[16] = 1
+ ROWB_ACCESS_COUNT: batch_row_count[17] = 2
+ ROWB_ACCESS_COUNT: batch_row_count[18] = 3
+ ROWB_ACCESS_COUNT: batch_row_count[19] = 2
+ LOADER: row 0 assigned to pu[0] | row_len = 10 | done_count = 1
+ LOADER: row 1 assigned to pu[1] | row_len = 13 | done_count = 2
+ LOADER: row 2 assigned to pu[2] | row_len = 10 | done_count = 3
+ LOADER: row 3 assigned to pu[3] | row_len = 8 | done_count = 4
+
+ memTable:
+ blockTable[0][0][0] = 1
+ blockTable[0][0][1] = 3
+ blockTable[0][1][0] = 5
+ blockTable[0][1][1] = 8
+ blockTable[1][0][0] = 2
+ blockTable[1][0][1] = 4
+ blockTable[1][1][0] = 6
+ blockTable[1][1][1] = 9
+
+ countTable:
+ blockTable[0][0][0] = 1
+ blockTable[0][0][1] = 2
+ blockTable[0][1][0] = 1
+ blockTable[0][1][1] = 1
+ blockTable[1][0][0] = 2
+ blockTable[1][0][1] = 3
+ blockTable[1][1][0] = 3
+ blockTable[1][1][1] = 3
+ Inserting row 1 at 0 with count 1 for pu 0
+ Inserting row 3 at 1 with count 2 for pu 0
+ Inserting row 5 at 0 with count 1 for pu 1
+ Inserting row 8 at 1 with count 1 for pu 1
+ Inserting row 2 at 0 with count 2 for pu 2
+ Inserting row 4 at 1 with count 3 for pu 2
+ Inserting row 6 at 0 with count 3 for pu 3
+ Inserting row 9 at 1 with count 3 for pu 3
+
+ NETWORK: Initializing Network
+ Network memtable:
+ memtable[0] = 1
+ memtable[1] = 3
+ memtable[2] = 5
+ memtable[3] = 8
+ memtable[4] = 2
+ memtable[5] = 4
+ memtable[6] = 6
+ memtable[7] = 9
+ NETWORK countTable:
+ countTable[0] = 0
+ countTable[1] = 0
+ countTable[2] = 0
+ countTable[3] = 0
+ countTable[4] = 0
+ countTable[5] = 0
+ countTable[6] = 1
+ countTable[7] = 0
+ countTable[8] = 0
+ countTable[9] = 1
+ countTable[10] = 1
+ countTable[11] = 3
+ countTable[12] = 2
+ countTable[13] = 3
+ countTable[14] = 2
+ countTable[15] = 4
+ countTable[16] = 1
+ countTable[17] = 2
+ countTable[18] = 3
+ countTable[19] = 2
+ MAIN: Starting top | lenA = 20, lenB = 20, lenC = 0 | ready_sig = 0, cont = 0, done_count = 4, start_comp = 0, batch = 0
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 4 , ACCESS(row, 1) = 6
+ NAME: 0 | row[4] not found in local mem
+ NAME: 0 | Global flush = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 1
+ counttable[1] = 2 | memTable[1] = 3
+ NAME: 0 | Resetting countTable[0]
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 1
+ counttable[1] = 2 | memTable[1] = 3
+ NAME: 0 | Request Row: avail_req.empty = 1
+ NAME: 0 | Request_row = 4, req_at = 2
+ NAME: 0 | Requesting row[4] from Block
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 1 , ACCESS(row, 1) = 2
+ NAME: 1 | row[1] not found in local mem
+ NAME: 1 | Global flush = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 5
+ counttable[1] = 1 | memTable[1] = 8
+ NAME: 1 | Resetting countTable[0]
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 5
+ counttable[1] = 1 | memTable[1] = 8
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 1 | Request_row = 1, req_at = 2
+ NAME: 1 | Requesting row[1] from Block
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 3 , ACCESS(row, 1) = 5
+ NAME: 2 | row[3] not found in local mem
+ NAME: 2 | Global flush = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 2 | memTable[0] = 2
+ counttable[1] = 3 | memTable[1] = 4
+ NAME: 2 | Resetting countTable[0]
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 2 | memTable[0] = 2
+ counttable[1] = 3 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 2 | Request_row = 3, req_at = 2
+ NAME: 2 | Requesting row[3] from Block
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 2 , ACCESS(row, 1) = 4
+ NAME: 3 | row[2] not found in local mem
+ NAME: 3 | Global flush = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 3 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ NAME: 3 | Resetting countTable[0]
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 3 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 3 | Request_row = 2, req_at = 2
+ NAME: 3 | Requesting row[2] from Block
+ NAME: 0 | Servicing internal request from PE[1], row = 1, at 2
+ NAME: 0 | Row found in PE[0] mem[0]
+ NAME: 0 | int_count = 0
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | Servicing internal request from PE[0], row = 4, at 2
+ NAME: 1 | Forwarding request from PE[0], row = 4, at 2 to network
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | Servicing internal request from PE[3], row = 2, at 2
+ NAME: 2 | Row found in PE[2] mem[0]
+ NAME: 2 | int_count = 0
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | Servicing internal request from PE[2], row = 3, at 2
+ NAME: 3 | Forwarding request from PE[2], row = 3, at 2 to network
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 1 | SERVICE_REQUEST:
+ NETWORK 1 | Current INFO -> Requesting pu = 0, requested row = 4, at 2
+ NETWORK: 1 | memTable[0] = 1
+ NETWORK: 1 | memTable[1] = 3
+ NETWORK: 1 | memTable[2] = 5
+ NETWORK: 1 | memTable[3] = 8
+ NETWORK: 1 | memTable[4] = 2
+ NETWORK: 1 | memTable[5] = 4
+ NETWORK: 1 | Found row at pu[2] | auto_req = 0
+ NETWORK: 1 | memTable[6] = 6
+ NETWORK: 1 | memTable[7] = 9
+ NETWORK: 3 | SERVICE_REQUEST:
+ NETWORK 3 | Current INFO -> Requesting pu = 2, requested row = 3, at 2
+ NETWORK: 3 | memTable[0] = 1
+ NETWORK: 3 | memTable[1] = 3
+ NETWORK: 3 | Found row at pu[0] | auto_req = 0
+ NETWORK: 3 | memTable[2] = 5
+ NETWORK: 3 | memTable[3] = 8
+ NETWORK: 3 | memTable[4] = 2
+ NETWORK: 3 | memTable[5] = 4
+ NETWORK: 3 | memTable[6] = 6
+ NETWORK: 3 | memTable[7] = 9
+ NETWORK: 1 | CORSS_INFO: reqPE = 0, reqNet = 2, reqRow = 4, reqAt = 2 | dest_pu = 2 | auto_req = 0, auto_row = 7
+ NETWORK: 1 | Forwarding request from pu[0] for row[4] at 2 to dest_pu[2] | auto_req = 0 | req_fail = 0
+ NETWORK: 1 | Dropping mem request from pu[0] for row[4] at 2 | dest_pu[2]
+ NETWORK: 3 | CORSS_INFO: reqPE = 2, reqNet = 0, reqRow = 3, reqAt = 2 | dest_pu = 0 | auto_req = 0, auto_row = 7
+ NETWORK: 3 | Forwarding request from pu[2] for row[3] at 2 to dest_pu[0] | auto_req = 0 | req_fail = 0
+ NETWORK: 3 | Dropping mem request from pu[2] for row[3] at 2 | dest_pu[0]
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 4 , ACCESS(row, 1) = 6
+ NAME: 0 | Global flush = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 1
+ counttable[1] = 2 | memTable[1] = 3
+ NAME: 0 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 1
+ counttable[1] = 2 | memTable[1] = 3
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 0 | Request_row = 6, req_at = 0
+ NAME: 0 | Requesting row[6] from Block
+ NAME: 1 | Updating memTable from internal Block replies for row 1 at 2 | fetch_now = 1
+ NAME: 1 | Writing row[1] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 1 | pusing count_set = 2, count_val = 2
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 1 , ACCESS(row, 1) = 2
+ NAME: 1 | Found row[1] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 2, fetch_indA_1 = 3, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 5
+ counttable[1] = 1 | memTable[1] = 8
+ NAME: 1 | Setting countTable[2] = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 5
+ counttable[1] = 1 | memTable[1] = 8
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 1 | Request_row = 2, req_at = 2
+ NAME: 1 | Requesting row[2] from Block
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 3 , ACCESS(row, 1) = 5
+ NAME: 2 | Global flush = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 2 | memTable[0] = 2
+ counttable[1] = 3 | memTable[1] = 4
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 2
+ counttable[1] = 3 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 2 | Request_row = 5, req_at = 2
+ NAME: 2 | Requesting row[5] from Block
+ NAME: 3 | Updating memTable from internal Block replies for row 2 at 2 | fetch_now = 2
+ NAME: 3 | Writing row[2] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 3 | pusing count_set = 2, count_val = 2
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 2 , ACCESS(row, 1) = 4
+ NAME: 3 | Found row[2] at memTable[2] | fetch_count = 2
+ NAME: 3 | Global flush = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 4, fetch_indA_1 = 8, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 3 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ NAME: 3 | Setting countTable[2] = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 3 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 3 | Request_row = 4, req_at = 2
+ NAME: 3 | Requesting row[4] from Block
+ NAME: 0 | Servicing internal request from PE[1], row = 2, at 2
+ NAME: 0 | Forwarding request from PE[1], row = 2, at 2 to network
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | Servicing external request from PE[2], row[3] at 2 | req_fail = 0
+ NAME: 0 | Row found in PE[0] mem[1]
+ NAME: 0 | ext_count = 1 | count_reset_loc = 2
+ NAME: 1 | Servicing internal request from PE[0], row = 6, at 0
+ NAME: 1 | Forwarding request from PE[0], row = 6, at 0 to network
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | Servicing internal request from PE[3], row = 4, at 2
+ NAME: 2 | Row found in PE[2] mem[1]
+ NAME: 2 | int_count = 1
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | Servicing external request from PE[0], row[4] at 2 | req_fail = 0
+ NAME: 2 | Row found in PE[2] mem[1]
+ NAME: 2 | ext_count = 1 | count_reset_loc = 2
+ NAME: 3 | Servicing internal request from PE[2], row = 5, at 2
+ NAME: 3 | Forwarding request from PE[2], row = 5, at 2 to network
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 0 | SERVICE_REQUEST:
+ NETWORK 0 | Current INFO -> Requesting pu = 1, requested row = 2, at 2
+ NETWORK: 0 | memTable[0] = 1
+ NETWORK: 0 | memTable[1] = 3
+ NETWORK: 0 | memTable[2] = 5
+ NETWORK: 0 | memTable[3] = 8
+ NETWORK: 0 | memTable[4] = 2
+ NETWORK: 0 | Found row at pu[2] | auto_req = 0
+ NETWORK: 0 | memTable[5] = 4
+ NETWORK: 0 | memTable[6] = 6
+ NETWORK: 0 | memTable[7] = 9
+ NETWORK: 1 | SERVICE_REQUEST:
+ NETWORK 1 | Current INFO -> Requesting pu = 0, requested row = 6, at 0
+ NETWORK: 1 | memTable[0] = 1
+ NETWORK: 1 | memTable[1] = 3
+ NETWORK: 1 | memTable[2] = 5
+ NETWORK: 1 | memTable[3] = 8
+ NETWORK: 1 | memTable[4] = 2
+ NETWORK: 1 | memTable[5] = 4
+ NETWORK: 1 | memTable[6] = 6
+ NETWORK: 1 | Found row at pu[3] | auto_req = 1
+ NETWORK: 1 | memTable[7] = 9
+ NETWORK: 3 | SERVICE_REQUEST:
+ NETWORK 3 | Current INFO -> Requesting pu = 2, requested row = 5, at 2
+ NETWORK: 3 | memTable[0] = 1
+ NETWORK: 3 | memTable[1] = 3
+ NETWORK: 3 | memTable[2] = 5
+ NETWORK: 3 | Found row at pu[1] | auto_req = 0
+ NETWORK: 3 | memTable[3] = 8
+ NETWORK: 3 | memTable[4] = 2
+ NETWORK: 3 | memTable[5] = 4
+ NETWORK: 3 | memTable[6] = 6
+ NETWORK: 3 | memTable[7] = 9
+ NETWORK: 0 | CORSS_INFO: reqPE = 1, reqNet = 2, reqRow = 2, reqAt = 2 | dest_pu = 2 | auto_req = 0, auto_row = 7
+ NETWORK: 0 | Forwarding request from pu[1] for row[2] at 2 to dest_pu[2] | auto_req = 0 | req_fail = 0
+ NETWORK: 0 | Dropping mem request from pu[1] for row[2] at 2 | dest_pu[2]
+ NETWORK: 1 | CORSS_INFO: reqPE = 0, reqNet = 3, reqRow = 6, reqAt = 0 | dest_pu = 3 | auto_req = 1, auto_row = 7
+ zero index = 6
+ NETWORK: 1 | batchCountTable[6] = 0 | auto_req = 1, auto_row = 7
+ NETWORK: 1 | Forwarding request from pu[0] for row[6] at 0 to dest_pu[3] | auto_req = 1 | req_fail = 0
+ NETWORK: 1 | Forwarding request from pu[0] for row[6] at 0 to MemB | auto_req = 1 | req_fail = 0
+ NETWORK: 3 | CORSS_INFO: reqPE = 2, reqNet = 1, reqRow = 5, reqAt = 2 | dest_pu = 1 | auto_req = 0, auto_row = 10
+ NETWORK: 3 | Forwarding request from pu[2] for row[5] at 2 to dest_pu[1] | auto_req = 0 | req_fail = 0
+ NETWORK: 3 | Dropping mem request from pu[2] for row[5] at 2 | dest_pu[1]
+ NETWORK: 0 | Forwarding reply from pu[0] for row[3] at 2 to dest_pu[2]
+ NETWORK: 2 | Forwarding reply from pu[2] for row[4] at 2 to dest_pu[0]
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[0], req_row = [6], req_at = [0] | auto_req = 1, auto_row = 7
+ MEMORY: Forwarding reply from MemB for row[7] to dest_pu[0] at 0 with count 1 | repfail = 0
+ NAME: 0 | Updating memTable from external Block replies for row 4 at 2 with count 2 | fetch_now = 4
+ NAME: 0 | Writing row[4] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 4 , ACCESS(row, 1) = 6
+ NAME: 0 | Found row[4] at memTable[2] | fetch_count = 2
+ NAME: 0 | Global flush = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 6, fetch_indA_1 = 7, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 1
+ counttable[1] = 2 | memTable[1] = 3
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 1
+ counttable[1] = 1 | memTable[1] = 3
+ NAME: 0 | Request Row: avail_req.empty = 1
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 2 , ACCESS(row, 1) = 3
+ NAME: 1 | Global flush = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 5
+ counttable[1] = 1 | memTable[1] = 8
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 5
+ counttable[1] = 1 | memTable[1] = 8
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 1 | Request_row = 3, req_at = 2
+ NAME: 1 | Requesting row[3] from Block
+ NAME: 2 | Updating memTable from external Block replies for row 3 at 2 with count 2 | fetch_now = 3
+ NAME: 2 | Writing row[3] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 3 , ACCESS(row, 1) = 5
+ NAME: 2 | Found row[3] at memTable[2] | fetch_count = 2
+ NAME: 2 | Global flush = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 5, fetch_indA_1 = 6, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 2
+ counttable[1] = 3 | memTable[1] = 4
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 2
+ counttable[1] = 1 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 3 | Updating memTable from internal Block replies for row 4 at 2 | fetch_now = 4
+ NAME: 3 | Writing row[4] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 3 | pusing count_set = 2, count_val = 2
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 4 , ACCESS(row, 1) = 8
+ NAME: 3 | Found row[4] at memTable[2] | fetch_count = 2
+ NAME: 3 | Global flush = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 8, fetch_indA_1 = 9, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 3 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ NAME: 3 | Setting countTable[2] = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 3 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 3 | Request_row = 8, req_at = 2
+ NAME: 3 | Requesting row[8] from Block
+ NAME: 0 | Servicing internal request from PE[1], row = 3, at 2
+ NAME: 0 | Row found in PE[0] mem[1]
+ NAME: 0 | int_count = 1
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | Servicing external request from PE[2], row[5] at 2 | req_fail = 0
+ NAME: 1 | Row found in PE[1] mem[0]
+ NAME: 1 | ext_count = 0 | count_reset_loc = 2
+ NAME: 2 | Servicing internal request from PE[3], row = 8, at 2
+ NAME: 2 | Forwarding request from PE[3], row = 8, at 2 to network
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | Servicing external request from PE[1], row[2] at 2 | req_fail = 0
+ NAME: 2 | Row found in PE[2] mem[0]
+ NAME: 2 | ext_count = 0 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | Servicing external request from PE[0], row[6] at 0 | req_fail = 0
+ NAME: 3 | Row found in PE[3] mem[0]
+ NAME: 3 | ext_count = 0 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 2 | SERVICE_REQUEST:
+ NETWORK 2 | Current INFO -> Requesting pu = 3, requested row = 8, at 2
+ NETWORK: 2 | memTable[0] = 1
+ NETWORK: 2 | memTable[1] = 3
+ NETWORK: 2 | memTable[2] = 5
+ NETWORK: 2 | memTable[3] = 8
+ NETWORK: 2 | Found row at pu[1] | auto_req = 0
+ NETWORK: 2 | memTable[4] = 2
+ NETWORK: 2 | memTable[5] = 4
+ NETWORK: 2 | memTable[6] = 6
+ NETWORK: 2 | memTable[7] = 9
+ NETWORK: 2 | CORSS_INFO: reqPE = 3, reqNet = 1, reqRow = 8, reqAt = 2 | dest_pu = 1 | auto_req = 0, auto_row = 10
+ NETWORK: 2 | Forwarding request from pu[3] for row[8] at 2 to dest_pu[1] | auto_req = 0 | req_fail = 0
+ NETWORK: 2 | Dropping mem request from pu[3] for row[8] at 2 | dest_pu[1]
+ NETWORK: 1 | Forwarding reply from pu[1] for row[5] at 2 to dest_pu[2]
+ NETWORK: 2 | Forwarding reply from pu[2] for row[2] at 2 to dest_pu[1]
+ NETWORK: 3 | Forwarding reply from pu[3] for row[6] at 2 to dest_pu[0]
+ NETWORK: 4 | Forwarding reply from MemB for row[7] at 0 to dest_pu[0]
+ COMMS: Updating memTable[0] with row 7
+ COMMS: new_memtable[0] = 7
+ COMMS: new_memtable[1] = 3
+ COMMS: new_memtable[2] = 5
+ COMMS: new_memtable[3] = 8
+ COMMS: new_memtable[4] = 2
+ COMMS: new_memtable[5] = 4
+ COMMS: new_memtable[6] = 6
+ COMMS: new_memtable[7] = 9
+ NAME: 0 | Updating memTable from external Block replies for row 6 at 2 with count 0 | fetch_now = 6
+ NAME: 0 | Writing row[6] to memB[2] with count = 0 | count_set = 2, count_val = 0
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 6 , ACCESS(row, 1) = 7
+ NAME: 0 | Found row[6] at memTable[2] | fetch_count = 2
+ NAME: 0 | Global flush = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 7, fetch_indA_1 = 9, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 1
+ counttable[1] = 1 | memTable[1] = 3
+ NAME: 0 | inserting avail_at = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 1
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 0 | Request_row = 7, req_at = 1
+ NAME: 0 | Requesting row[7] from Block
+ NAME: 1 | Updating memTable from internal Block replies for row 3 at 2 | fetch_now = 2
+ NAME: 1 | Updating memTable from external Block replies for row 2 at 2 with count 2 | fetch_now = 2
+ NAME: 1 | Writing row[2] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 2 , ACCESS(row, 1) = 3
+ NAME: 1 | Found row[2] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 3, fetch_indA_1 = 4, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 5
+ counttable[1] = 1 | memTable[1] = 8
+ NAME: 1 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 5
+ counttable[1] = 1 | memTable[1] = 8
+ NAME: 1 | Request Row: avail_req.empty = 0
+ NAME: 2 | Updating memTable from external Block replies for row 5 at 2 with count 2 | fetch_now = 5
+ NAME: 2 | Writing row[5] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 5 , ACCESS(row, 1) = 6
+ NAME: 2 | Found row[5] at memTable[2] | fetch_count = 2
+ NAME: 2 | Global flush = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 6, fetch_indA_1 = 10, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 2
+ counttable[1] = 1 | memTable[1] = 4
+ NAME: 2 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 1 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 0
+ NAME: 2 | Request_row = 6, req_at = 0
+ NAME: 2 | Requesting row[6] from Block
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 8 , ACCESS(row, 1) = 9
+ NAME: 3 | Global flush = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 3 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 2 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | Servicing internal request from PE[0], row = 7, at 1
+ NAME: 1 | Forwarding request from PE[0], row = 7, at 1 to network
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | Servicing external request from PE[3], row[8] at 2 | req_fail = 0
+ NAME: 1 | Row found in PE[1] mem[1]
+ NAME: 1 | ext_count = 1 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | Servicing internal request from PE[2], row = 6, at 0
+ NAME: 3 | Row found in PE[3] mem[0]
+ NAME: 3 | int_count = 0
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 1 | SERVICE_REQUEST:
+ NETWORK 1 | Current INFO -> Requesting pu = 0, requested row = 7, at 1
+ NETWORK: 1 | memTable[0] = 7
+ NETWORK: 1 | Found row at pu[0] | auto_req = 0
+ NETWORK: 1 | memTable[1] = 3
+ NETWORK: 1 | memTable[2] = 5
+ NETWORK: 1 | memTable[3] = 8
+ NETWORK: 1 | memTable[4] = 2
+ NETWORK: 1 | memTable[5] = 4
+ NETWORK: 1 | memTable[6] = 6
+ NETWORK: 1 | memTable[7] = 9
+ NETWORK: 1 | CORSS_INFO: reqPE = 0, reqNet = 0, reqRow = 7, reqAt = 1 | dest_pu = 0 | auto_req = 0, auto_row = 10
+ NETWORK: 1 | Forwarding request from pu[0] for row[7] at 1 to dest_pu[0] | auto_req = 0 | req_fail = 1
+ NETWORK: 1 | Dropping mem request from pu[0] for row[7] at 1 | dest_pu[0]
+ NETWORK: 1 | Forwarding reply from pu[1] for row[8] at 2 to dest_pu[3]
+ NAME: 0 | Updating memTable from external Block replies for row 7 at 0 with count 1 | fetch_now = 7
+ NAME: 0 | Writing row[7] to memB[0] with count = 1 | count_set = 0, count_val = 1
+ NAME: 0 | pusing count_set = 0, count_val = 1
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 7 , ACCESS(row, 1) = 9
+ NAME: 0 | Found row[7] at memTable[0] | fetch_count = 0
+ NAME: 0 | Global flush = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 9, fetch_indA_1 = 13, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 1
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Setting countTable[0] = 1
+ NAME: 0 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 7
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 0 | Request_row = 9, req_at = 0
+ NAME: 0 | Requesting row[9] from Block
+ NAME: 1 | Writing row[3] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 1 | pusing count_set = 2, count_val = 2
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 3 , ACCESS(row, 1) = 4
+ NAME: 1 | Found row[3] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 4, fetch_indA_1 = 6, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 5
+ counttable[1] = 1 | memTable[1] = 8
+ NAME: 1 | Setting countTable[2] = 0
+ NAME: 1 | inserting avail_at = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 5
+ counttable[1] = 0 | memTable[1] = 8
+ NAME: 1 | Request Row: avail_req.empty = 0
+ NAME: 1 | Request_row = 4, req_at = 0
+ NAME: 1 | Requesting row[4] from Block
+ NAME: 2 | Updating memTable from internal Block replies for row 6 at 2 | fetch_now = 6
+ NAME: 2 | Writing row[6] to memB[2] with count = 0 | count_set = 2, count_val = 0
+ NAME: 2 | pusing count_set = 2, count_val = 0
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 6 , ACCESS(row, 1) = 10
+ NAME: 2 | Found row[6] at memTable[2] | fetch_count = 2
+ NAME: 2 | Global flush = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 10, fetch_indA_1 = 11, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 1 | memTable[1] = 4
+ NAME: 2 | Setting countTable[2] = 1
+ NAME: 2 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 1 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 0
+ NAME: 2 | Request_row = 10, req_at = 0
+ NAME: 2 | Requesting row[10] from Block
+ NAME: 3 | Updating memTable from external Block replies for row 8 at 2 with count 2 | fetch_now = 8
+ NAME: 3 | Writing row[8] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 8 , ACCESS(row, 1) = 9
+ NAME: 3 | Found row[8] at memTable[2] | fetch_count = 2
+ NAME: 3 | Global flush = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 9, fetch_indA_1 = 12, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 2 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 0 | Servicing internal request from PE[1], row = 4, at 0
+ NAME: 0 | Forwarding request from PE[1], row = 4, at 0 to network
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | Servicing external request from PE[0], row[7] at 1 | req_fail = 1
+ NAME: 0 | ext_count = 2 | count_reset_loc = 1
+ NAME: 1 | Servicing internal request from PE[0], row = 9, at 0
+ NAME: 1 | Forwarding request from PE[0], row = 9, at 0 to network
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | Servicing internal request from PE[2], row = 10, at 0
+ NAME: 3 | Forwarding request from PE[2], row = 10, at 0 to network
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 0 | SERVICE_REQUEST:
+ NETWORK 0 | Current INFO -> Requesting pu = 1, requested row = 4, at 0
+ NETWORK: 0 | memTable[0] = 7
+ NETWORK: 0 | memTable[1] = 3
+ NETWORK: 0 | memTable[2] = 5
+ NETWORK: 0 | memTable[3] = 8
+ NETWORK: 0 | memTable[4] = 2
+ NETWORK: 0 | memTable[5] = 4
+ NETWORK: 0 | Found row at pu[2] | auto_req = 1
+ NETWORK: 0 | memTable[6] = 6
+ NETWORK: 0 | memTable[7] = 9
+ NETWORK: 1 | SERVICE_REQUEST:
+ NETWORK 1 | Current INFO -> Requesting pu = 0, requested row = 9, at 0
+ NETWORK: 1 | memTable[0] = 7
+ NETWORK: 1 | memTable[1] = 3
+ NETWORK: 1 | memTable[2] = 5
+ NETWORK: 1 | memTable[3] = 8
+ NETWORK: 1 | memTable[4] = 2
+ NETWORK: 1 | memTable[5] = 4
+ NETWORK: 1 | memTable[6] = 6
+ NETWORK: 1 | memTable[7] = 9
+ NETWORK: 1 | Found row at pu[3] | auto_req = 1
+ NETWORK: 3 | SERVICE_REQUEST:
+ NETWORK 3 | Current INFO -> Requesting pu = 2, requested row = 10, at 0
+ NETWORK: 3 | memTable[0] = 7
+ NETWORK: 3 | memTable[1] = 3
+ NETWORK: 3 | memTable[2] = 5
+ NETWORK: 3 | memTable[3] = 8
+ NETWORK: 3 | memTable[4] = 2
+ NETWORK: 3 | memTable[5] = 4
+ NETWORK: 3 | memTable[6] = 6
+ NETWORK: 3 | memTable[7] = 9
+ NETWORK: 0 | CORSS_INFO: reqPE = 1, reqNet = 2, reqRow = 4, reqAt = 0 | dest_pu = 2 | auto_req = 1, auto_row = 10
+ zero index = 9
+ NETWORK: 0 | batchCountTable[9] = 0 | auto_req = 1, auto_row = 10
+ NETWORK: 0 | Forwarding request from pu[1] for row[4] at 0 to dest_pu[2] | auto_req = 1 | req_fail = 0
+ NETWORK: 0 | Forwarding request from pu[1] for row[4] at 0 to MemB | auto_req = 1 | req_fail = 0
+ NETWORK: 1 | CORSS_INFO: reqPE = 0, reqNet = 3, reqRow = 9, reqAt = 0 | dest_pu = 3 | auto_req = 1, auto_row = 11
+ zero index = 10
+ NETWORK: 1 | batchCountTable[10] = 0 | auto_req = 1, auto_row = 11
+ NETWORK: 1 | Forwarding request from pu[0] for row[9] at 0 to dest_pu[3] | auto_req = 1 | req_fail = 0
+ NETWORK: 1 | Forwarding request from pu[0] for row[9] at 0 to MemB | auto_req = 1 | req_fail = 0
+ NETWORK: 3 | CORSS_INFO: reqPE = 2, reqNet = 5, reqRow = 10, reqAt = 0 | dest_pu = 5 | auto_req = 0, auto_row = 12
+ NETWORK 3 | Request for row[10] previously made by pu[1], ignoring request by pu[2]
+ NETWORK: 3 | Generating auto-req for pu[2], row[12], at 0 | auto_req = 1
+ zero index = 11
+ NETWORK: 3 | batchCountTable[11] = 0 | auto_req = 1, auto_row = 12
+ NETWORK: 3 | Forwarding request from pu[2] for row[10] at 0 to dest_pu[1] | auto_req = 1 | req_fail = 0
+ NETWORK: 3 | Forwarding request from pu[2] for row[10] at 0 to MemB | auto_req = 1 | req_fail = 0
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[1], req_row = [4], req_at = [0] | auto_req = 1, auto_row = 10
+ MEMORY: Forwarding reply from MemB for row[10] to dest_pu[1] at 0 with count 1 | repfail = 0
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 9 , ACCESS(row, 1) = 13
+ NAME: 0 | Global flush = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 7
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Resetting countTable[1]
+ NAME: 0 | inserting avail_at = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 7
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 0 | Request_row = 13, req_at = 1
+ NAME: 0 | Requesting row[13] from Block
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 4 , ACCESS(row, 1) = 6
+ NAME: 1 | Global flush = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 5
+ counttable[1] = 0 | memTable[1] = 8
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 5
+ counttable[1] = 0 | memTable[1] = 8
+ NAME: 1 | Request Row: avail_req.empty = 0
+ NAME: 1 | Request_row = 6, req_at = 1
+ NAME: 1 | Requesting row[6] from Block
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 10 , ACCESS(row, 1) = 11
+ NAME: 2 | Global flush = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 1 | memTable[1] = 4
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 1 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 2 | Request_row = 11, req_at = 2
+ NAME: 2 | Requesting row[11] from Block
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 9 , ACCESS(row, 1) = 12
+ NAME: 3 | Found row[9] at memTable[1] | fetch_count = 1
+ NAME: 3 | Global flush = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 12, fetch_indA_1 = 16, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 6
+ counttable[1] = 3 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 6
+ counttable[1] = 2 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 3 | Request_row = 12, req_at = 2
+ NAME: 3 | Requesting row[12] from Block
+ NAME: 0 | Servicing internal request from PE[1], row = 6, at 1
+ NAME: 0 | Forwarding request from PE[1], row = 6, at 1 to network
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | Servicing internal request from PE[0], row = 13, at 1
+ NAME: 1 | Forwarding request from PE[0], row = 13, at 1 to network
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | Servicing external request from PE[2], row[10] at 0 | req_fail = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | Servicing internal request from PE[3], row = 12, at 2
+ NAME: 2 | Forwarding request from PE[3], row = 12, at 2 to network
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | Servicing external request from PE[1], row[4] at 0 | req_fail = 0
+ NAME: 2 | Row found in PE[2] mem[1]
+ NAME: 2 | ext_count = 1 | count_reset_loc = 2
+ NAME: 3 | Servicing internal request from PE[2], row = 11, at 2
+ NAME: 3 | Forwarding request from PE[2], row = 11, at 2 to network
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | Servicing external request from PE[0], row[9] at 0 | req_fail = 0
+ NAME: 3 | Row found in PE[3] mem[1]
+ NAME: 3 | ext_count = 1 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 0 | SERVICE_REQUEST:
+ NETWORK 0 | Current INFO -> Requesting pu = 1, requested row = 6, at 1
+ NETWORK: 0 | memTable[0] = 7
+ NETWORK: 0 | memTable[1] = 3
+ NETWORK: 0 | memTable[2] = 5
+ NETWORK: 0 | memTable[3] = 8
+ NETWORK: 0 | memTable[4] = 2
+ NETWORK: 0 | memTable[5] = 4
+ NETWORK: 0 | memTable[6] = 6
+ NETWORK: 0 | Found row at pu[3] | auto_req = 1
+ NETWORK: 0 | memTable[7] = 9
+ NETWORK: 1 | SERVICE_REQUEST:
+ NETWORK 1 | Current INFO -> Requesting pu = 0, requested row = 13, at 1
+ NETWORK: 1 | memTable[0] = 7
+ NETWORK: 1 | memTable[1] = 3
+ NETWORK: 1 | memTable[2] = 5
+ NETWORK: 1 | memTable[3] = 8
+ NETWORK: 1 | memTable[4] = 2
+ NETWORK: 1 | memTable[5] = 4
+ NETWORK: 1 | memTable[6] = 6
+ NETWORK: 1 | memTable[7] = 9
+ NETWORK: 2 | SERVICE_REQUEST:
+ NETWORK 2 | Current INFO -> Requesting pu = 3, requested row = 12, at 2
+ NETWORK: 2 | memTable[0] = 7
+ NETWORK: 2 | memTable[1] = 3
+ NETWORK: 2 | memTable[2] = 5
+ NETWORK: 2 | memTable[3] = 8
+ NETWORK: 2 | memTable[4] = 2
+ NETWORK: 2 | memTable[5] = 4
+ NETWORK: 2 | memTable[6] = 6
+ NETWORK: 2 | memTable[7] = 9
+ NETWORK: 3 | SERVICE_REQUEST:
+ NETWORK 3 | Current INFO -> Requesting pu = 2, requested row = 11, at 2
+ NETWORK: 3 | memTable[0] = 7
+ NETWORK: 3 | memTable[1] = 3
+ NETWORK: 3 | memTable[2] = 5
+ NETWORK: 3 | memTable[3] = 8
+ NETWORK: 3 | memTable[4] = 2
+ NETWORK: 3 | memTable[5] = 4
+ NETWORK: 3 | memTable[6] = 6
+ NETWORK: 3 | memTable[7] = 9
+ NETWORK: 0 | CORSS_INFO: reqPE = 1, reqNet = 3, reqRow = 6, reqAt = 1 | dest_pu = 3 | auto_req = 1, auto_row = 13
+ zero index = 12
+ NETWORK: 0 | batchCountTable[12] = 0 | auto_req = 1, auto_row = 13
+ NETWORK: 0 | Forwarding request from pu[1] for row[6] at 1 to dest_pu[3] | auto_req = 1 | req_fail = 0
+ NETWORK: 0 | Forwarding request from pu[1] for row[6] at 1 to MemB | auto_req = 1 | req_fail = 0
+ NETWORK: 1 | CORSS_INFO: reqPE = 0, reqNet = 5, reqRow = 13, reqAt = 1 | dest_pu = 5 | auto_req = 0, auto_row = 14
+ NETWORK 1 | Request for row[13] previously made by pu[1], ignoring request by pu[0]
+ NETWORK: 1 | Generating auto-req for pu[0], row[14], at 1 | auto_req = 1
+ zero index = 13
+ NETWORK: 1 | batchCountTable[13] = 0 | auto_req = 1, auto_row = 14
+ NETWORK: 1 | Forwarding request from pu[0] for row[13] at 1 to dest_pu[1] | auto_req = 1 | req_fail = 0
+ NETWORK: 1 | Forwarding request from pu[0] for row[13] at 1 to MemB | auto_req = 1 | req_fail = 0
+ NETWORK: 2 | CORSS_INFO: reqPE = 3, reqNet = 5, reqRow = 12, reqAt = 2 | dest_pu = 5 | auto_req = 0, auto_row = 15
+ NETWORK 2 | Request for row[12] previously made by pu[2], ignoring request by pu[3]
+ NETWORK: 2 | Forwarding request from pu[3] for row[12] at 2 to dest_pu[2] | auto_req = 0 | req_fail = 0
+ NETWORK: 2 | Dropping mem request from pu[3] for row[12] at 2 | dest_pu[2]
+ NETWORK: 3 | CORSS_INFO: reqPE = 2, reqNet = 5, reqRow = 11, reqAt = 2 | dest_pu = 5 | auto_req = 0, auto_row = 15
+ NETWORK 3 | Request for row[11] previously made by pu[0], ignoring request by pu[2]
+ NETWORK: 3 | Forwarding request from pu[2] for row[11] at 2 to dest_pu[0] | auto_req = 0 | req_fail = 0
+ NETWORK: 3 | Dropping mem request from pu[2] for row[11] at 2 | dest_pu[0]
+ NETWORK: 2 | Forwarding reply from pu[2] for row[4] at 2 to dest_pu[1]
+ NETWORK: 3 | Forwarding reply from pu[3] for row[9] at 2 to dest_pu[0]
+ NETWORK: 4 | Forwarding reply from MemB for row[10] at 0 to dest_pu[1]
+ COMMS: Updating memTable[2] with row 10
+ COMMS: new_memtable[0] = 7
+ COMMS: new_memtable[1] = 3
+ COMMS: new_memtable[2] = 10
+ COMMS: new_memtable[3] = 8
+ COMMS: new_memtable[4] = 2
+ COMMS: new_memtable[5] = 4
+ COMMS: new_memtable[6] = 6
+ COMMS: new_memtable[7] = 9
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[0], req_row = [9], req_at = [0] | auto_req = 1, auto_row = 11
+ MEMORY: Forwarding reply from MemB for row[11] to dest_pu[0] at 0 with count 1 | repfail = 0
+ NAME: 0 | Updating memTable from external Block replies for row 9 at 2 with count 0 | fetch_now = 9
+ NAME: 0 | Writing row[9] to memB[2] with count = 0 | count_set = 2, count_val = 0
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 9 , ACCESS(row, 1) = 13
+ NAME: 0 | Found row[9] at memTable[2] | fetch_count = 2
+ NAME: 0 | Global flush = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 13, fetch_indA_1 = 14, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 7
+ counttable[1] = 0 | memTable[1] = 3
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 7
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Request Row: avail_req.empty = 1
+ NAME: 1 | Updating memTable from external Block replies for row 4 at 2 with count 0 | fetch_now = 4
+ NAME: 1 | Writing row[4] to memB[2] with count = 0 | count_set = 2, count_val = 0
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 4 , ACCESS(row, 1) = 6
+ NAME: 1 | Found row[4] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 6, fetch_indA_1 = 9, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 5
+ counttable[1] = 0 | memTable[1] = 8
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 5
+ counttable[1] = 0 | memTable[1] = 8
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 10 , ACCESS(row, 1) = 11
+ NAME: 2 | Global flush = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 1 | memTable[1] = 4
+ NAME: 2 | inserting avail_at = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 0
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 12 , ACCESS(row, 1) = 16
+ NAME: 3 | Global flush = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 6
+ counttable[1] = 2 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 6
+ counttable[1] = 1 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 3 | Request_row = 16, req_at = 2
+ NAME: 3 | Requesting row[16] from Block
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | Servicing external request from PE[2], row[11] at 2 | req_fail = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 1
+ NAME: 1 | Servicing external request from PE[2], row[10] at 0 | req_fail = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | Servicing internal request from PE[3], row = 16, at 2
+ NAME: 2 | Forwarding request from PE[3], row = 16, at 2 to network
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | Servicing external request from PE[3], row[12] at 2 | req_fail = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | Servicing external request from PE[1], row[6] at 1 | req_fail = 0
+ NAME: 3 | Row found in PE[3] mem[0]
+ NAME: 3 | ext_count = 0 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 2 | SERVICE_REQUEST:
+ NETWORK 2 | Current INFO -> Requesting pu = 3, requested row = 16, at 2
+ NETWORK: 2 | memTable[0] = 7
+ NETWORK: 2 | memTable[1] = 3
+ NETWORK: 2 | memTable[2] = 10
+ NETWORK: 2 | memTable[3] = 8
+ NETWORK: 2 | memTable[4] = 2
+ NETWORK: 2 | memTable[5] = 4
+ NETWORK: 2 | memTable[6] = 6
+ NETWORK: 2 | memTable[7] = 9
+ NETWORK: 2 | CORSS_INFO: reqPE = 3, reqNet = 5, reqRow = 16, reqAt = 2 | dest_pu = 5 | auto_req = 0, auto_row = 15
+ NETWORK: 2 | Dropping pu request from pu[3] for row[16] at 2 | dest_pu[5]
+ NETWORK: 2 | Forwarding request from pu[3] for row[16] at 2 to MemB | auto_req = 0 | req_fail = 0
+ NETWORK: 3 | Forwarding reply from pu[3] for row[6] at 2 to dest_pu[1]
+ NETWORK: 4 | Forwarding reply from MemB for row[11] at 0 to dest_pu[0]
+ COMMS: Updating memTable[0] with row 11
+ COMMS: new_memtable[0] = 11
+ COMMS: new_memtable[1] = 3
+ COMMS: new_memtable[2] = 10
+ COMMS: new_memtable[3] = 8
+ COMMS: new_memtable[4] = 2
+ COMMS: new_memtable[5] = 4
+ COMMS: new_memtable[6] = 6
+ COMMS: new_memtable[7] = 9
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[2], req_row = [10], req_at = [0] | auto_req = 1, auto_row = 12
+ MEMORY: Forwarding reply from MemB for row[12] to dest_pu[2] at 0 with count 3 | repfail = 0
+ NAME: 0 | Updating memTable from external Block replies for row 11 at 0 with count 1 | fetch_now = 13
+ NAME: 0 | Writing row[11] to memB[0] with count = 1 | count_set = 0, count_val = 1
+ NAME: 0 | pusing count_set = 0, count_val = 1
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 13 , ACCESS(row, 1) = 14
+ NAME: 0 | Global flush = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 7
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Setting countTable[0] = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 11
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Request Row: avail_req.empty = 1
+ NAME: 0 | Request_row = 14, req_at = 2
+ NAME: 0 | Requesting row[14] from Block
+ NAME: 1 | Updating memTable from external Block replies for row 10 at 0 with count 1 | fetch_now = 6
+ NAME: 1 | Writing row[10] to memB[0] with count = 1 | count_set = 0, count_val = 1
+ NAME: 1 | pusing count_set = 0, count_val = 1
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 6 , ACCESS(row, 1) = 9
+ NAME: 1 | Global flush = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 5
+ counttable[1] = 0 | memTable[1] = 8
+ NAME: 1 | Setting countTable[0] = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 10
+ counttable[1] = 0 | memTable[1] = 8
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 1 | Request_row = 9, req_at = 2
+ NAME: 1 | Requesting row[9] from Block
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 10 , ACCESS(row, 1) = 11
+ NAME: 2 | Global flush = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 0 | memTable[1] = 4
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 0
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 12 , ACCESS(row, 1) = 16
+ NAME: 3 | Global flush = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 6
+ counttable[1] = 1 | memTable[1] = 9
+ NAME: 3 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 1 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 0
+ NAME: 0 | Servicing internal request from PE[1], row = 9, at 2
+ NAME: 0 | Forwarding request from PE[1], row = 9, at 2 to network
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 1
+ NAME: 0 | Servicing external request from PE[2], row[11] at 2 | req_fail = 0
+ NAME: 0 | Row found in PE[0] mem[0]
+ NAME: 0 | ext_count = 0 | count_reset_loc = 2
+ NAME: 1 | Servicing internal request from PE[0], row = 14, at 2
+ NAME: 1 | Forwarding request from PE[0], row = 14, at 2 to network
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 1
+ NAME: 1 | Servicing external request from PE[2], row[10] at 0 | req_fail = 0
+ NAME: 1 | Row found in PE[1] mem[0]
+ NAME: 1 | ext_count = 0 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 1
+ NAME: 2 | Servicing external request from PE[3], row[12] at 2 | req_fail = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 0 | SERVICE_REQUEST:
+ NETWORK 0 | Current INFO -> Requesting pu = 1, requested row = 9, at 2
+ NETWORK: 0 | memTable[0] = 11
+ NETWORK: 0 | memTable[1] = 3
+ NETWORK: 0 | memTable[2] = 10
+ NETWORK: 0 | memTable[3] = 8
+ NETWORK: 0 | memTable[4] = 2
+ NETWORK: 0 | memTable[5] = 4
+ NETWORK: 0 | memTable[6] = 6
+ NETWORK: 0 | memTable[7] = 9
+ NETWORK: 0 | Found row at pu[3] | auto_req = 0
+ NETWORK: 1 | SERVICE_REQUEST:
+ NETWORK 1 | Current INFO -> Requesting pu = 0, requested row = 14, at 2
+ NETWORK: 1 | memTable[0] = 11
+ NETWORK: 1 | memTable[1] = 3
+ NETWORK: 1 | memTable[2] = 10
+ NETWORK: 1 | memTable[3] = 8
+ NETWORK: 1 | memTable[4] = 2
+ NETWORK: 1 | memTable[5] = 4
+ NETWORK: 1 | memTable[6] = 6
+ NETWORK: 1 | memTable[7] = 9
+ NETWORK: 0 | CORSS_INFO: reqPE = 1, reqNet = 3, reqRow = 9, reqAt = 2 | dest_pu = 3 | auto_req = 0, auto_row = 15
+ NETWORK: 0 | Forwarding request from pu[1] for row[9] at 2 to dest_pu[3] | auto_req = 0 | req_fail = 0
+ NETWORK: 0 | Dropping mem request from pu[1] for row[9] at 2 | dest_pu[3]
+ NETWORK: 1 | CORSS_INFO: reqPE = 0, reqNet = 5, reqRow = 14, reqAt = 2 | dest_pu = 5 | auto_req = 0, auto_row = 15
+ NETWORK 1 | Request for row[14] previously made by pu[0], ignoring request by pu[0]
+ NETWORK: 1 | Forwarding request from pu[0] for row[14] at 2 to dest_pu[0] | auto_req = 0 | req_fail = 1
+ NETWORK: 1 | Dropping mem request from pu[0] for row[14] at 2 | dest_pu[0]
+ NETWORK: 0 | Forwarding reply from pu[0] for row[11] at 2 to dest_pu[2]
+ NETWORK: 1 | Forwarding reply from pu[1] for row[10] at 2 to dest_pu[2]
+ NETWORK: 4 | Forwarding reply from MemB for row[12] at 0 to dest_pu[2]
+ COMMS: Updating memTable[4] with row 12
+ COMMS: new_memtable[0] = 11
+ COMMS: new_memtable[1] = 3
+ COMMS: new_memtable[2] = 10
+ COMMS: new_memtable[3] = 8
+ COMMS: new_memtable[4] = 12
+ COMMS: new_memtable[5] = 4
+ COMMS: new_memtable[6] = 6
+ COMMS: new_memtable[7] = 9
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[1], req_row = [6], req_at = [1] | auto_req = 1, auto_row = 13
+ MEMORY: Forwarding reply from MemB for row[13] to dest_pu[1] at 1 with count 2 | repfail = 0
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 13 , ACCESS(row, 1) = 14
+ NAME: 0 | Global flush = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 11
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 1 | Updating memTable from external Block replies for row 6 at 2 with count 1 | fetch_now = 6
+ NAME: 1 | Writing row[6] to memB[2] with count = 1 | count_set = 2, count_val = 1
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 6 , ACCESS(row, 1) = 9
+ NAME: 1 | Found row[6] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 9, fetch_indA_1 = 12, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 10
+ counttable[1] = 0 | memTable[1] = 8
+ NAME: 1 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 10
+ counttable[1] = 0 | memTable[1] = 8
+ NAME: 1 | Request Row: avail_req.empty = 0
+ NAME: 2 | Updating memTable from external Block replies for row 11 at 2 with count 2 | fetch_now = 10
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 10 , ACCESS(row, 1) = 11
+ NAME: 2 | Global flush = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 0 | memTable[1] = 4
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 0
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 12 , ACCESS(row, 1) = 16
+ NAME: 3 | Global flush = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 1 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 1 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 0
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | Servicing external request from PE[0], row[14] at 2 | req_fail = 1
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | Servicing external request from PE[0], row[13] at 1 | req_fail = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 1
+ NAME: 2 | Servicing external request from PE[3], row[12] at 2 | req_fail = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | Servicing external request from PE[1], row[9] at 2 | req_fail = 0
+ NAME: 3 | Row found in PE[3] mem[1]
+ NAME: 3 | ext_count = 1 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 3 | Forwarding reply from pu[3] for row[9] at 2 to dest_pu[1]
+ NETWORK: 4 | Forwarding reply from MemB for row[13] at 1 to dest_pu[1]
+ COMMS: Updating memTable[3] with row 13
+ COMMS: new_memtable[0] = 11
+ COMMS: new_memtable[1] = 3
+ COMMS: new_memtable[2] = 10
+ COMMS: new_memtable[3] = 13
+ COMMS: new_memtable[4] = 12
+ COMMS: new_memtable[5] = 4
+ COMMS: new_memtable[6] = 6
+ COMMS: new_memtable[7] = 9
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[0], req_row = [13], req_at = [1] | auto_req = 1, auto_row = 14
+ MEMORY: Forwarding reply from MemB for row[14] to dest_pu[0] at 1 with count 3 | repfail = 0
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 13 , ACCESS(row, 1) = 14
+ NAME: 0 | Global flush = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 0 | memTable[1] = 3
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 1 | Updating memTable from external Block replies for row 9 at 2 with count 2 | fetch_now = 9
+ NAME: 1 | Writing row[9] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 9 , ACCESS(row, 1) = 12
+ NAME: 1 | Found row[9] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 12, fetch_indA_1 = 13, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 10
+ counttable[1] = 0 | memTable[1] = 8
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 10
+ counttable[1] = 0 | memTable[1] = 8
+ NAME: 1 | Request Row: avail_req.empty = 0
+ NAME: 1 | Request_row = 12, req_at = 0
+ NAME: 1 | Requesting row[12] from Block
+ NAME: 2 | Restoring external reply for row 10 at 2 with count 0 | fetch_now = 10
+ NAME: 2 | Writing row[10] to memB[2] with count = 0 | count_set = 2, count_val = 0
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 10 , ACCESS(row, 1) = 11
+ NAME: 2 | Found row[10] at memTable[2] | fetch_count = 2
+ NAME: 2 | Global flush = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 11, fetch_indA_1 = 12, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 0 | memTable[1] = 4
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 0
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 12 , ACCESS(row, 1) = 16
+ NAME: 3 | Global flush = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 1 | memTable[1] = 9
+ NAME: 3 | inserting avail_at = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 0
+ NAME: 0 | Servicing internal request from PE[1], row = 12, at 0
+ NAME: 0 | Forwarding request from PE[1], row = 12, at 0 to network
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 1
+ NAME: 0 | Servicing external request from PE[0], row[14] at 2 | req_fail = 1
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 1
+ NAME: 1 | Servicing external request from PE[0], row[13] at 1 | req_fail = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 1
+ NAME: 2 | Servicing external request from PE[3], row[12] at 2 | req_fail = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 0 | SERVICE_REQUEST:
+ NETWORK 0 | Current INFO -> Requesting pu = 1, requested row = 12, at 0
+ NETWORK: 0 | memTable[0] = 11
+ NETWORK: 0 | memTable[1] = 3
+ NETWORK: 0 | memTable[2] = 10
+ NETWORK: 0 | memTable[3] = 13
+ NETWORK: 0 | memTable[4] = 12
+ NETWORK: 0 | Found row at pu[2] | auto_req = 1
+ NETWORK: 0 | memTable[5] = 4
+ NETWORK: 0 | memTable[6] = 6
+ NETWORK: 0 | memTable[7] = 9
+ NETWORK: 0 | CORSS_INFO: reqPE = 1, reqNet = 2, reqRow = 12, reqAt = 0 | dest_pu = 2 | auto_req = 1, auto_row = 15
+ zero index = 14
+ NETWORK: 0 | batchCountTable[14] = 0 | auto_req = 1, auto_row = 15
+ NETWORK: 0 | Forwarding request from pu[1] for row[12] at 0 to dest_pu[2] | auto_req = 1 | req_fail = 0
+ NETWORK: 0 | Forwarding request from pu[1] for row[12] at 0 to MemB | auto_req = 1 | req_fail = 0
+ NETWORK: 4 | Forwarding reply from MemB for row[14] at 1 to dest_pu[0]
+ COMMS: Updating memTable[1] with row 14
+ COMMS: new_memtable[0] = 11
+ COMMS: new_memtable[1] = 14
+ COMMS: new_memtable[2] = 10
+ COMMS: new_memtable[3] = 13
+ COMMS: new_memtable[4] = 12
+ COMMS: new_memtable[5] = 4
+ COMMS: new_memtable[6] = 6
+ COMMS: new_memtable[7] = 9
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[3], req_row = [16], req_at = [2] | auto_req = 0, auto_row = 15
+ MEMORY: Forwarding reply from MemB for row[16] to dest_pu[3] at 2 with count 4 | repfail = 0
+ NAME: 0 | Updating memTable from external Block replies for row 14 at 1 with count 3 | fetch_now = 13
+ NAME: 0 | Writing row[14] to memB[1] with count = 3 | count_set = 1, count_val = 3
+ NAME: 0 | pusing count_set = 1, count_val = 3
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 13 , ACCESS(row, 1) = 14
+ NAME: 0 | Global flush = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 0 | memTable[1] = 3
+ NAME: 0 | Setting countTable[1] = 3
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 3 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 1 | Updating memTable from external Block replies for row 13 at 1 with count 2 | fetch_now = 12
+ NAME: 1 | Writing row[13] to memB[1] with count = 2 | count_set = 1, count_val = 2
+ NAME: 1 | pusing count_set = 1, count_val = 2
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 12 , ACCESS(row, 1) = 13
+ NAME: 1 | Global flush = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 10
+ counttable[1] = 0 | memTable[1] = 8
+ NAME: 1 | Setting countTable[1] = 2
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 10
+ counttable[1] = 2 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 2 | Restoring external reply for row 12 at 0 with count 3 | fetch_now = 11
+ NAME: 2 | Writing row[12] to memB[0] with count = 3 | count_set = 0, count_val = 3
+ NAME: 2 | pusing count_set = 0, count_val = 3
+ NAME: 2 | Writing row[11] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 11 , ACCESS(row, 1) = 12
+ NAME: 2 | Found row[11] at memTable[2] | fetch_count = 2
+ NAME: 2 | Global flush = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 12, fetch_indA_1 = 14, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 2
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | Setting countTable[0] = 3
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 3 | memTable[0] = 12
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 0
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 12 , ACCESS(row, 1) = 16
+ NAME: 3 | Global flush = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 0
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 1
+ NAME: 0 | Servicing external request from PE[0], row[14] at 2 | req_fail = 1
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 1
+ NAME: 1 | Servicing external request from PE[0], row[13] at 1 | req_fail = 0
+ NAME: 1 | Row found in PE[1] mem[1]
+ NAME: 1 | ext_count = 1 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 1
+ NAME: 2 | Servicing external request from PE[3], row[12] at 2 | req_fail = 0
+ NAME: 2 | Row found in PE[2] mem[0]
+ NAME: 2 | ext_count = 0 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 1 | Forwarding reply from pu[1] for row[13] at 2 to dest_pu[0]
+ NETWORK: 2 | Forwarding reply from pu[2] for row[12] at 2 to dest_pu[3]
+ NETWORK: 4 | Forwarding reply from MemB for row[16] at 2 to dest_pu[3]
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[1], req_row = [12], req_at = [0] | auto_req = 1, auto_row = 15
+ MEMORY: Forwarding reply from MemB for row[15] to dest_pu[1] at 0 with count 2 | repfail = 0
+ NAME: 0 | Updating memTable from external Block replies for row 13 at 2 with count 1 | fetch_now = 13
+ NAME: 0 | Writing row[13] to memB[2] with count = 1 | count_set = 2, count_val = 1
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 13 , ACCESS(row, 1) = 14
+ NAME: 0 | Found row[13] at memTable[2] | fetch_count = 2
+ NAME: 0 | Global flush = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 14, fetch_indA_1 = 15, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 3 | memTable[1] = 14
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 3 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 12 , ACCESS(row, 1) = 13
+ NAME: 1 | Global flush = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 10
+ counttable[1] = 2 | memTable[1] = 13
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 10
+ counttable[1] = 1 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 12 , ACCESS(row, 1) = 14
+ NAME: 2 | Found row[12] at memTable[0] | fetch_count = 0
+ NAME: 2 | Global flush = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 14, fetch_indA_1 = 16, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 3 | memTable[0] = 12
+ counttable[1] = 0 | memTable[1] = 4
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 12
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 0
+ NAME: 2 | Request_row = 14, req_at = 1
+ NAME: 2 | Requesting row[14] from Block
+ NAME: 3 | Updating memTable from external Block replies for row 12 at 2 with count 2 | fetch_now = 12
+ NAME: 3 | Writing row[12] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 12 , ACCESS(row, 1) = 16
+ NAME: 3 | Found row[12] at memTable[2] | fetch_count = 2
+ NAME: 3 | Global flush = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 16, fetch_indA_1 = 19, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 0
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | Servicing external request from PE[1], row[12] at 0 | req_fail = 0
+ NAME: 2 | Row found in PE[2] mem[0]
+ NAME: 2 | ext_count = 0 | count_reset_loc = 2
+ NAME: 3 | Servicing internal request from PE[2], row = 14, at 1
+ NAME: 3 | Forwarding request from PE[2], row = 14, at 1 to network
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 3 | SERVICE_REQUEST:
+ NETWORK 3 | Current INFO -> Requesting pu = 2, requested row = 14, at 1
+ NETWORK: 3 | memTable[0] = 11
+ NETWORK: 3 | memTable[1] = 14
+ NETWORK: 3 | Found row at pu[0] | auto_req = 1
+ NETWORK: 3 | memTable[2] = 10
+ NETWORK: 3 | memTable[3] = 13
+ NETWORK: 3 | memTable[4] = 12
+ NETWORK: 3 | memTable[5] = 4
+ NETWORK: 3 | memTable[6] = 6
+ NETWORK: 3 | memTable[7] = 9
+ NETWORK: 3 | CORSS_INFO: reqPE = 2, reqNet = 0, reqRow = 14, reqAt = 1 | dest_pu = 0 | auto_req = 1, auto_row = 16
+ zero index = 15
+ NETWORK: 3 | batchCountTable[15] = 0 | auto_req = 1, auto_row = 16
+ NETWORK: 3 | Forwarding request from pu[2] for row[14] at 1 to dest_pu[0] | auto_req = 1 | req_fail = 0
+ NETWORK: 3 | Forwarding request from pu[2] for row[14] at 1 to MemB | auto_req = 1 | req_fail = 0
+ NETWORK: 2 | Forwarding reply from pu[2] for row[12] at 2 to dest_pu[1]
+ NETWORK: 4 | Forwarding reply from MemB for row[15] at 0 to dest_pu[1]
+ COMMS: Updating memTable[2] with row 15
+ COMMS: new_memtable[0] = 11
+ COMMS: new_memtable[1] = 14
+ COMMS: new_memtable[2] = 15
+ COMMS: new_memtable[3] = 13
+ COMMS: new_memtable[4] = 12
+ COMMS: new_memtable[5] = 4
+ COMMS: new_memtable[6] = 6
+ COMMS: new_memtable[7] = 9
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[2], req_row = [14], req_at = [1] | auto_req = 1, auto_row = 16
+ MEMORY: Forwarding reply from MemB for row[16] to dest_pu[2] at 1 with count 3 | repfail = 0
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 14 , ACCESS(row, 1) = 15
+ NAME: 0 | Found row[14] at memTable[1] | fetch_count = 1
+ NAME: 0 | Global flush = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 15, fetch_indA_1 = 16, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 3 | memTable[1] = 14
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 2 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 0 | Request_row = 15, req_at = 0
+ NAME: 0 | Requesting row[15] from Block
+ NAME: 1 | Updating memTable from external Block replies for row 12 at 2 with count 0 | fetch_now = 12
+ NAME: 1 | Writing row[12] to memB[2] with count = 0 | count_set = 2, count_val = 0
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 12 , ACCESS(row, 1) = 13
+ NAME: 1 | Found row[12] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 13, fetch_indA_1 = 14, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 10
+ counttable[1] = 1 | memTable[1] = 13
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 10
+ counttable[1] = 1 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 14 , ACCESS(row, 1) = 16
+ NAME: 2 | Global flush = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 12
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 12
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 0
+ NAME: 2 | Request_row = 16, req_at = 0
+ NAME: 2 | Requesting row[16] from Block
+ NAME: 3 | Updating memTable from external Block replies for row 16 at 2 with count 4 | fetch_now = 16
+ NAME: 3 | Writing row[16] to memB[2] with count = 4 | count_set = 2, count_val = 4
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 16 , ACCESS(row, 1) = 19
+ NAME: 3 | Found row[16] at memTable[2] | fetch_count = 2
+ NAME: 3 | Global flush = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 19, fetch_indA_1 = 20, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 0
+ NAME: 3 | Request_row = 19, req_at = 0
+ NAME: 3 | Requesting row[19] from Block
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | Servicing external request from PE[2], row[14] at 1 | req_fail = 0
+ NAME: 0 | Row found in PE[0] mem[1]
+ NAME: 0 | ext_count = 1 | count_reset_loc = 2
+ NAME: 1 | Servicing internal request from PE[0], row = 15, at 0
+ NAME: 1 | Forwarding request from PE[0], row = 15, at 0 to network
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | Servicing internal request from PE[3], row = 19, at 0
+ NAME: 2 | Forwarding request from PE[3], row = 19, at 0 to network
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | Servicing internal request from PE[2], row = 16, at 0
+ NAME: 3 | Forwarding request from PE[2], row = 16, at 0 to network
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 1 | SERVICE_REQUEST:
+ NETWORK 1 | Current INFO -> Requesting pu = 0, requested row = 15, at 0
+ NETWORK: 1 | memTable[0] = 11
+ NETWORK: 1 | memTable[1] = 14
+ NETWORK: 1 | memTable[2] = 15
+ NETWORK: 1 | Found row at pu[1] | auto_req = 1
+ NETWORK: 1 | memTable[3] = 13
+ NETWORK: 1 | memTable[4] = 12
+ NETWORK: 1 | memTable[5] = 4
+ NETWORK: 1 | memTable[6] = 6
+ NETWORK: 1 | memTable[7] = 9
+ NETWORK: 2 | SERVICE_REQUEST:
+ NETWORK 2 | Current INFO -> Requesting pu = 3, requested row = 19, at 0
+ NETWORK: 2 | memTable[0] = 11
+ NETWORK: 2 | memTable[1] = 14
+ NETWORK: 2 | memTable[2] = 15
+ NETWORK: 2 | memTable[3] = 13
+ NETWORK: 2 | memTable[4] = 12
+ NETWORK: 2 | memTable[5] = 4
+ NETWORK: 2 | memTable[6] = 6
+ NETWORK: 2 | memTable[7] = 9
+ NETWORK: 3 | SERVICE_REQUEST:
+ NETWORK 3 | Current INFO -> Requesting pu = 2, requested row = 16, at 0
+ NETWORK: 3 | memTable[0] = 11
+ NETWORK: 3 | memTable[1] = 14
+ NETWORK: 3 | memTable[2] = 15
+ NETWORK: 3 | memTable[3] = 13
+ NETWORK: 3 | memTable[4] = 12
+ NETWORK: 3 | memTable[5] = 4
+ NETWORK: 3 | memTable[6] = 6
+ NETWORK: 3 | memTable[7] = 9
+ NETWORK: 1 | CORSS_INFO: reqPE = 0, reqNet = 1, reqRow = 15, reqAt = 0 | dest_pu = 1 | auto_req = 1, auto_row = 17
+ zero index = 16
+ NETWORK: 1 | batchCountTable[16] = 0 | auto_req = 1, auto_row = 17
+ NETWORK: 1 | Forwarding request from pu[0] for row[15] at 0 to dest_pu[1] | auto_req = 1 | req_fail = 0
+ NETWORK: 1 | Forwarding request from pu[0] for row[15] at 0 to MemB | auto_req = 1 | req_fail = 0
+ NETWORK: 2 | CORSS_INFO: reqPE = 3, reqNet = 5, reqRow = 19, reqAt = 0 | dest_pu = 5 | auto_req = 0, auto_row = 18
+ zero index = 18
+ NETWORK: 2 | batchCountTable[18] = 0 | auto_req = 0, auto_row = 18
+ NETWORK: 2 | Dropping pu request from pu[3] for row[19] at 0 | dest_pu[5]
+ NETWORK: 2 | Forwarding request from pu[3] for row[19] at 0 to MemB | auto_req = 0 | req_fail = 0
+ NETWORK: 3 | CORSS_INFO: reqPE = 2, reqNet = 5, reqRow = 16, reqAt = 0 | dest_pu = 5 | auto_req = 0, auto_row = 18
+ NETWORK 3 | Request for row[16] previously made by pu[2], ignoring request by pu[2]
+ NETWORK: 3 | Generating auto-req for pu[2], row[18], at 0 | auto_req = 1
+ zero index = 17
+ NETWORK: 3 | batchCountTable[17] = 0 | auto_req = 1, auto_row = 18
+ NETWORK: 3 | Dropping pu request from pu[2] for row[16] at 0 | dest_pu[2]
+ NETWORK: 3 | Forwarding request from pu[2] for row[16] at 0 to MemB | auto_req = 1 | req_fail = 0
+ NETWORK: 0 | Forwarding reply from pu[0] for row[14] at 2 to dest_pu[2]
+ NETWORK: 4 | Forwarding reply from MemB for row[16] at 1 to dest_pu[2]
+ COMMS: Updating memTable[5] with row 16
+ COMMS: new_memtable[0] = 11
+ COMMS: new_memtable[1] = 14
+ COMMS: new_memtable[2] = 15
+ COMMS: new_memtable[3] = 13
+ COMMS: new_memtable[4] = 12
+ COMMS: new_memtable[5] = 16
+ COMMS: new_memtable[6] = 6
+ COMMS: new_memtable[7] = 9
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[0], req_row = [15], req_at = [0] | auto_req = 1, auto_row = 17
+ MEMORY: Forwarding reply from MemB for row[17] to dest_pu[0] at 0 with count 1 | repfail = 0
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 15 , ACCESS(row, 1) = 16
+ NAME: 0 | Global flush = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 2 | memTable[1] = 14
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 1 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 1
+ NAME: 0 | Request_row = 16, req_at = 2
+ NAME: 0 | Requesting row[16] from Block
+ NAME: 1 | Updating memTable from external Block replies for row 15 at 0 with count 2 | fetch_now = 13
+ NAME: 1 | Writing row[15] to memB[0] with count = 2 | count_set = 0, count_val = 2
+ NAME: 1 | pusing count_set = 0, count_val = 2
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 13 , ACCESS(row, 1) = 14
+ NAME: 1 | Found row[13] at memTable[1] | fetch_count = 1
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 14, fetch_indA_1 = 15, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 10
+ counttable[1] = 1 | memTable[1] = 13
+ NAME: 1 | Setting countTable[0] = 2
+ NAME: 1 | inserting avail_at = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 2 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 0
+ NAME: 1 | Request_row = 14, req_at = 1
+ NAME: 1 | Requesting row[14] from Block
+ NAME: 2 | Updating memTable from external Block replies for row 14 at 2 with count 1 | fetch_now = 14
+ NAME: 2 | Writing row[14] to memB[2] with count = 1 | count_set = 2, count_val = 1
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 14 , ACCESS(row, 1) = 16
+ NAME: 2 | Found row[14] at memTable[2] | fetch_count = 2
+ NAME: 2 | Global flush = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 16, fetch_indA_1 = 18, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 12
+ counttable[1] = 0 | memTable[1] = 4
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 12
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 19 , ACCESS(row, 1) = 20
+ NAME: 3 | Global flush = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 0
+ NAME: 3 | Request_row = 20, req_at = 1
+ NAME: 3 | Requesting row[20] from Block
+ NAME: 0 | Servicing internal request from PE[1], row = 14, at 1
+ NAME: 0 | Row found in PE[0] mem[1]
+ NAME: 0 | int_count = 1
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | Servicing internal request from PE[0], row = 16, at 2
+ NAME: 1 | Forwarding request from PE[0], row = 16, at 2 to network
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | Servicing external request from PE[0], row[15] at 0 | req_fail = 0
+ NAME: 1 | Row found in PE[1] mem[0]
+ NAME: 1 | ext_count = 0 | count_reset_loc = 2
+ NAME: 2 | Servicing internal request from PE[3], row = 20, at 1
+ NAME: 2 | Forwarding request from PE[3], row = 20, at 1 to network
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 1 | SERVICE_REQUEST:
+ NETWORK 1 | Current INFO -> Requesting pu = 0, requested row = 16, at 2
+ NETWORK: 1 | memTable[0] = 11
+ NETWORK: 1 | memTable[1] = 14
+ NETWORK: 1 | memTable[2] = 15
+ NETWORK: 1 | memTable[3] = 13
+ NETWORK: 1 | memTable[4] = 12
+ NETWORK: 1 | memTable[5] = 16
+ NETWORK: 1 | Found row at pu[2] | auto_req = 0
+ NETWORK: 1 | memTable[6] = 6
+ NETWORK: 1 | memTable[7] = 9
+ NETWORK: 2 | SERVICE_REQUEST:
+ NETWORK 2 | Current INFO -> Requesting pu = 3, requested row = 20, at 1
+ NETWORK: 2 | memTable[0] = 11
+ NETWORK: 2 | memTable[1] = 14
+ NETWORK: 2 | memTable[2] = 15
+ NETWORK: 2 | memTable[3] = 13
+ NETWORK: 2 | memTable[4] = 12
+ NETWORK: 2 | memTable[5] = 16
+ NETWORK: 2 | memTable[6] = 6
+ NETWORK: 2 | memTable[7] = 9
+ NETWORK: 1 | CORSS_INFO: reqPE = 0, reqNet = 2, reqRow = 16, reqAt = 2 | dest_pu = 2 | auto_req = 0, auto_row = 20
+ NETWORK: 1 | Forwarding request from pu[0] for row[16] at 2 to dest_pu[2] | auto_req = 0 | req_fail = 0
+ NETWORK: 1 | Dropping mem request from pu[0] for row[16] at 2 | dest_pu[2]
+ NETWORK: 2 | CORSS_INFO: reqPE = 3, reqNet = 5, reqRow = 20, reqAt = 1 | dest_pu = 5 | auto_req = 0, auto_row = 20
+ zero index = 19
+ NETWORK: 2 | batchCountTable[19] = 0 | auto_req = 0, auto_row = 20
+ NETWORK: 2 | Dropping pu request from pu[3] for row[20] at 1 | dest_pu[5]
+ NETWORK: 2 | Forwarding request from pu[3] for row[20] at 1 to MemB | auto_req = 0 | req_fail = 0
+ NETWORK: 1 | Forwarding reply from pu[1] for row[15] at 2 to dest_pu[0]
+ NETWORK: 4 | Forwarding reply from MemB for row[17] at 0 to dest_pu[0]
+ COMMS: Updating memTable[0] with row 17
+ COMMS: new_memtable[0] = 17
+ COMMS: new_memtable[1] = 14
+ COMMS: new_memtable[2] = 15
+ COMMS: new_memtable[3] = 13
+ COMMS: new_memtable[4] = 12
+ COMMS: new_memtable[5] = 16
+ COMMS: new_memtable[6] = 6
+ COMMS: new_memtable[7] = 9
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[3], req_row = [19], req_at = [0] | auto_req = 0, auto_row = 18
+ MEMORY: Forwarding reply from MemB for row[19] to dest_pu[3] at 0 with count 3 | repfail = 0
+ NAME: 0 | Updating memTable from external Block replies for row 15 at 2 with count 0 | fetch_now = 15
+ NAME: 0 | Writing row[15] to memB[2] with count = 0 | count_set = 2, count_val = 0
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 15 , ACCESS(row, 1) = 16
+ NAME: 0 | Found row[15] at memTable[2] | fetch_count = 2
+ NAME: 0 | Global flush = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 16, fetch_indA_1 = 17, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 1 | memTable[1] = 14
+ NAME: 0 | inserting avail_at = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 1 | Updating memTable from internal Block replies for row 14 at 2 | fetch_now = 14
+ NAME: 1 | Writing row[14] to memB[2] with count = 1 | count_set = 2, count_val = 1
+ NAME: 1 | pusing count_set = 2, count_val = 1
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 14 , ACCESS(row, 1) = 15
+ NAME: 1 | Found row[14] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 15, fetch_indA_1 = 16, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 2 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Setting countTable[2] = 0
+ NAME: 1 | inserting avail_at = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 0
+ NAME: 2 | Updating memTable from external Block replies for row 16 at 1 with count 3 | fetch_now = 16
+ NAME: 2 | Writing row[16] to memB[1] with count = 3 | count_set = 1, count_val = 3
+ NAME: 2 | pusing count_set = 1, count_val = 3
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 16 , ACCESS(row, 1) = 18
+ NAME: 2 | Found row[16] at memTable[1] | fetch_count = 1
+ NAME: 2 | Global flush = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 18, fetch_indA_1 = 19, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 12
+ counttable[1] = 0 | memTable[1] = 4
+ NAME: 2 | Setting countTable[1] = 3
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 12
+ counttable[1] = 2 | memTable[1] = 16
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 2 | Request_row = 18, req_at = 2
+ NAME: 2 | Requesting row[18] from Block
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 19 , ACCESS(row, 1) = 20
+ NAME: 3 | Global flush = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | Servicing external request from PE[0], row[16] at 2 | req_fail = 0
+ NAME: 2 | Row found in PE[2] mem[1]
+ NAME: 2 | ext_count = 1 | count_reset_loc = 2
+ NAME: 3 | Servicing internal request from PE[2], row = 18, at 2
+ NAME: 3 | Forwarding request from PE[2], row = 18, at 2 to network
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 3 | SERVICE_REQUEST:
+ NETWORK 3 | Current INFO -> Requesting pu = 2, requested row = 18, at 2
+ NETWORK: 3 | memTable[0] = 17
+ NETWORK: 3 | memTable[1] = 14
+ NETWORK: 3 | memTable[2] = 15
+ NETWORK: 3 | memTable[3] = 13
+ NETWORK: 3 | memTable[4] = 12
+ NETWORK: 3 | memTable[5] = 16
+ NETWORK: 3 | memTable[6] = 6
+ NETWORK: 3 | memTable[7] = 9
+ NETWORK: 3 | CORSS_INFO: reqPE = 2, reqNet = 5, reqRow = 18, reqAt = 2 | dest_pu = 5 | auto_req = 0, auto_row = 0
+ NETWORK 3 | Request for row[18] previously made by pu[2], ignoring request by pu[2]
+ NETWORK: 3 | Forwarding request from pu[2] for row[18] at 2 to dest_pu[2] | auto_req = 0 | req_fail = 1
+ NETWORK: 3 | Dropping mem request from pu[2] for row[18] at 2 | dest_pu[2]
+ NETWORK: 2 | Forwarding reply from pu[2] for row[16] at 2 to dest_pu[0]
+ NETWORK: 4 | Forwarding reply from MemB for row[19] at 0 to dest_pu[3]
+ COMMS: Updating memTable[6] with row 19
+ COMMS: new_memtable[0] = 17
+ COMMS: new_memtable[1] = 14
+ COMMS: new_memtable[2] = 15
+ COMMS: new_memtable[3] = 13
+ COMMS: new_memtable[4] = 12
+ COMMS: new_memtable[5] = 16
+ COMMS: new_memtable[6] = 19
+ COMMS: new_memtable[7] = 9
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[2], req_row = [16], req_at = [0] | auto_req = 1, auto_row = 18
+ MEMORY: Forwarding reply from MemB for row[18] to dest_pu[2] at 0 with count 2 | repfail = 0
+ NAME: 0 | Updating memTable from external Block replies for row 17 at 0 with count 1 | fetch_now = 16
+ NAME: 0 | Writing row[17] to memB[0] with count = 1 | count_set = 0, count_val = 1
+ NAME: 0 | pusing count_set = 0, count_val = 1
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 16 , ACCESS(row, 1) = 17
+ NAME: 0 | Global flush = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 11
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | Setting countTable[0] = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 15 , ACCESS(row, 1) = 16
+ NAME: 1 | Found row[15] at memTable[0] | fetch_count = 0
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 16, fetch_indA_1 = 19, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 0
+ NAME: 1 | Request_row = 16, req_at = 1
+ NAME: 1 | Requesting row[16] from Block
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 18 , ACCESS(row, 1) = 19
+ NAME: 2 | Global flush = 1
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 12
+ counttable[1] = 2 | memTable[1] = 16
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 12
+ counttable[1] = 1 | memTable[1] = 16
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 2 | Request_row = 19, req_at = 2
+ NAME: 2 | Requesting row[19] from Block
+ NAME: 3 | Updating memTable from external Block replies for row 19 at 0 with count 3 | fetch_now = 19
+ NAME: 3 | Writing row[19] to memB[0] with count = 3 | count_set = 0, count_val = 3
+ NAME: 3 | pusing count_set = 0, count_val = 3
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 19 , ACCESS(row, 1) = 20
+ NAME: 3 | Found row[19] at memTable[0] | fetch_count = 0
+ NAME: 3 | Global flush = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 20, fetch_indA_1 = 0, mult_dataA_0 = 1, mult_dataA_1 = 0
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 6
+ counttable[1] = 0 | memTable[1] = 9
+ NAME: 3 | Setting countTable[0] = 3
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 2 | memTable[0] = 19
+ counttable[1] = 0 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 0 | Servicing internal request from PE[1], row = 16, at 1
+ NAME: 0 | Forwarding request from PE[1], row = 16, at 1 to network
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | Servicing external request from PE[2], row[18] at 2 | req_fail = 1
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | Servicing internal request from PE[2], row = 19, at 2
+ NAME: 3 | Row found in PE[3] mem[0]
+ NAME: 3 | int_count = 0
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 0 | SERVICE_REQUEST:
+ NETWORK 0 | Current INFO -> Requesting pu = 1, requested row = 16, at 1
+ NETWORK: 0 | memTable[0] = 17
+ NETWORK: 0 | memTable[1] = 14
+ NETWORK: 0 | memTable[2] = 15
+ NETWORK: 0 | memTable[3] = 13
+ NETWORK: 0 | memTable[4] = 12
+ NETWORK: 0 | memTable[5] = 16
+ NETWORK: 0 | Found row at pu[2] | auto_req = 1
+ NETWORK: 0 | memTable[6] = 19
+ NETWORK: 0 | memTable[7] = 9
+ NETWORK: 0 | CORSS_INFO: reqPE = 1, reqNet = 2, reqRow = 16, reqAt = 1 | dest_pu = 2 | auto_req = 1, auto_row = 0
+ NETWORK: 0 | Forwarding request from pu[1] for row[16] at 1 to dest_pu[2] | auto_req = 1 | req_fail = 0
+ NETWORK: 0 | Dropping mem request from pu[1] for row[16] at 1 | dest_pu[2]
+ NETWORK: 4 | Forwarding reply from MemB for row[18] at 0 to dest_pu[2]
+ COMMS: Updating memTable[4] with row 18
+ COMMS: new_memtable[0] = 17
+ COMMS: new_memtable[1] = 14
+ COMMS: new_memtable[2] = 15
+ COMMS: new_memtable[3] = 13
+ COMMS: new_memtable[4] = 18
+ COMMS: new_memtable[5] = 16
+ COMMS: new_memtable[6] = 19
+ COMMS: new_memtable[7] = 9
+ MEMORY: Servicing network requests
+ MEMORY: CURRENT_INFO: requesting pu[3], req_row = [20], req_at = [1] | auto_req = 0, auto_row = 20
+ MEMORY: Forwarding reply from MemB for row[20] to dest_pu[3] at 1 with count 2 | repfail = 0
+ NAME: 0 | Updating memTable from external Block replies for row 16 at 2 with count 2 | fetch_now = 16
+ NAME: 0 | Writing row[16] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 16 , ACCESS(row, 1) = 17
+ NAME: 0 | Found row[16] at memTable[2] | fetch_count = 2
+ NAME: 0 | Global flush = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 17, fetch_indA_1 = 18, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 16 , ACCESS(row, 1) = 19
+ NAME: 1 | Global flush = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 0
+ NAME: 1 | Request_row = 19, req_at = 0
+ NAME: 1 | Requesting row[19] from Block
+ NAME: 2 | Updating memTable from internal Block replies for row 19 at 2 | fetch_now = 18
+ NAME: 2 | Updating memTable from external Block replies for row 18 at 0 with count 2 | fetch_now = 18
+ NAME: 2 | Writing row[18] to memB[0] with count = 2 | count_set = 0, count_val = 2
+ NAME: 2 | pusing count_set = 0, count_val = 2
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 18 , ACCESS(row, 1) = 19
+ NAME: 2 | Found row[18] at memTable[0] | fetch_count = 0
+ NAME: 2 | Global flush = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 19, fetch_indA_1 = 0, mult_dataA_0 = 1, mult_dataA_1 = 0
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 12
+ counttable[1] = 1 | memTable[1] = 16
+ NAME: 2 | Setting countTable[0] = 2
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 18
+ counttable[1] = 1 | memTable[1] = 16
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 20 , ACCESS(row, 1) = 0
+ NAME: 3 | Global flush = 1
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 2 | memTable[0] = 19
+ counttable[1] = 0 | memTable[1] = 9
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 19
+ counttable[1] = 0 | memTable[1] = 9
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 0 | Servicing internal request from PE[1], row = 19, at 0
+ NAME: 0 | Forwarding request from PE[1], row = 19, at 0 to network
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 1
+ NAME: 2 | Servicing external request from PE[2], row[18] at 2 | req_fail = 1
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 0 | SERVICE_REQUEST:
+ NETWORK 0 | Current INFO -> Requesting pu = 1, requested row = 19, at 0
+ NETWORK: 0 | memTable[0] = 17
+ NETWORK: 0 | memTable[1] = 14
+ NETWORK: 0 | memTable[2] = 15
+ NETWORK: 0 | memTable[3] = 13
+ NETWORK: 0 | memTable[4] = 18
+ NETWORK: 0 | memTable[5] = 16
+ NETWORK: 0 | memTable[6] = 19
+ NETWORK: 0 | Found row at pu[3] | auto_req = 1
+ NETWORK: 0 | memTable[7] = 9
+ NETWORK: 0 | CORSS_INFO: reqPE = 1, reqNet = 3, reqRow = 19, reqAt = 0 | dest_pu = 3 | auto_req = 1, auto_row = 0
+ NETWORK: 0 | Forwarding request from pu[1] for row[19] at 0 to dest_pu[3] | auto_req = 1 | req_fail = 0
+ NETWORK: 0 | Dropping mem request from pu[1] for row[19] at 0 | dest_pu[3]
+ NETWORK: 4 | Forwarding reply from MemB for row[20] at 1 to dest_pu[3]
+ COMMS: Updating memTable[7] with row 20
+ COMMS: new_memtable[0] = 17
+ COMMS: new_memtable[1] = 14
+ COMMS: new_memtable[2] = 15
+ COMMS: new_memtable[3] = 13
+ COMMS: new_memtable[4] = 18
+ COMMS: new_memtable[5] = 16
+ COMMS: new_memtable[6] = 19
+ COMMS: new_memtable[7] = 20
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 17 , ACCESS(row, 1) = 18
+ NAME: 0 | Found row[17] at memTable[0] | fetch_count = 0
+ NAME: 0 | Global flush = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 18, fetch_indA_1 = 0, mult_dataA_0 = 1, mult_dataA_1 = 0
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 0 | Request_row = 18, req_at = 1
+ NAME: 0 | Requesting row[18] from Block
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 16 , ACCESS(row, 1) = 19
+ NAME: 1 | Global flush = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 2 | Writing row[19] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 2 | pusing count_set = 2, count_val = 2
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 19 , ACCESS(row, 1) = 0
+ NAME: 2 | Found row[19] at memTable[2] | fetch_count = 2
+ NAME: 2 | Global flush = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 18
+ counttable[1] = 1 | memTable[1] = 16
+ NAME: 2 | Setting countTable[2] = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 18
+ counttable[1] = 1 | memTable[1] = 16
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 3 | Updating memTable from external Block replies for row 20 at 1 with count 2 | fetch_now = 20
+ NAME: 3 | Writing row[20] to memB[1] with count = 2 | count_set = 1, count_val = 2
+ NAME: 3 | pusing count_set = 1, count_val = 2
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 20 , ACCESS(row, 1) = 0
+ NAME: 3 | Found row[20] at memTable[1] | fetch_count = 1
+ NAME: 3 | Global flush = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 19
+ counttable[1] = 0 | memTable[1] = 9
+ NAME: 3 | Setting countTable[1] = 2
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 19
+ counttable[1] = 1 | memTable[1] = 20
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | Servicing internal request from PE[0], row = 18, at 1
+ NAME: 1 | Forwarding request from PE[0], row = 18, at 1 to network
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | Servicing external request from PE[1], row[16] at 1 | req_fail = 0
+ NAME: 2 | Row found in PE[2] mem[1]
+ NAME: 2 | ext_count = 1 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | Servicing external request from PE[1], row[19] at 0 | req_fail = 0
+ NAME: 3 | Row found in PE[3] mem[0]
+ NAME: 3 | ext_count = 0 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 1 | SERVICE_REQUEST:
+ NETWORK 1 | Current INFO -> Requesting pu = 0, requested row = 18, at 1
+ NETWORK: 1 | memTable[0] = 17
+ NETWORK: 1 | memTable[1] = 14
+ NETWORK: 1 | memTable[2] = 15
+ NETWORK: 1 | memTable[3] = 13
+ NETWORK: 1 | memTable[4] = 18
+ NETWORK: 1 | Found row at pu[2] | auto_req = 1
+ NETWORK: 1 | memTable[5] = 16
+ NETWORK: 1 | memTable[6] = 19
+ NETWORK: 1 | memTable[7] = 20
+ NETWORK: 1 | CORSS_INFO: reqPE = 0, reqNet = 2, reqRow = 18, reqAt = 1 | dest_pu = 2 | auto_req = 1, auto_row = 0
+ NETWORK: 1 | Forwarding request from pu[0] for row[18] at 1 to dest_pu[2] | auto_req = 1 | req_fail = 0
+ NETWORK: 1 | Dropping mem request from pu[0] for row[18] at 1 | dest_pu[2]
+ NETWORK: 2 | Forwarding reply from pu[2] for row[16] at 2 to dest_pu[1]
+ NETWORK: 3 | Forwarding reply from pu[3] for row[19] at 2 to dest_pu[1]
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 18 , ACCESS(row, 1) = 0
+ NAME: 0 | Global flush = 1
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 1 | Updating memTable from external Block replies for row 16 at 2 with count 1 | fetch_now = 16
+ NAME: 1 | Writing row[16] to memB[2] with count = 1 | count_set = 2, count_val = 1
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 16 , ACCESS(row, 1) = 19
+ NAME: 1 | Found row[16] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 19, fetch_indA_1 = 20, mult_dataA_0 = 1, mult_dataA_1 = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 18
+ counttable[1] = 1 | memTable[1] = 16
+ NAME: 2 | inserting avail_at = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 1 | memTable[0] = 18
+ counttable[1] = 0 | memTable[1] = 16
+ NAME: 2 | Request Row: avail_req.empty = 1
+ RUN_PU: pu[2] finished computation | pus_done = 1
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 19
+ counttable[1] = 1 | memTable[1] = 20
+ NAME: 3 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 19
+ counttable[1] = 1 | memTable[1] = 20
+ NAME: 3 | Request Row: avail_req.empty = 1
+ RUN_PU: pu[3] finished computation | pus_done = 2
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | Servicing external request from PE[0], row[18] at 1 | req_fail = 0
+ NAME: 2 | Row found in PE[2] mem[0]
+ NAME: 2 | ext_count = 0 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 2 | Forwarding reply from pu[2] for row[18] at 2 to dest_pu[0]
+ NAME: 0 | Updating memTable from external Block replies for row 18 at 2 with count 1 | fetch_now = 18
+ NAME: 0 | Writing row[18] to memB[2] with count = 1 | count_set = 2, count_val = 1
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 18 , ACCESS(row, 1) = 0
+ NAME: 0 | Found row[18] at memTable[2] | fetch_count = 2
+ NAME: 0 | Global flush = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 0
+ NAME: 1 | Updating memTable from external Block replies for row 19 at 2 with count 0 | fetch_now = 19
+ NAME: 1 | Writing row[19] to memB[2] with count = 0 | count_set = 2, count_val = 0
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 19 , ACCESS(row, 1) = 20
+ NAME: 1 | Found row[19] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 20, fetch_indA_1 = 0, mult_dataA_0 = 1, mult_dataA_1 = 0
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 1 | Request_row = 20, req_at = 2
+ NAME: 1 | Requesting row[20] from Block
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 1 | memTable[0] = 18
+ counttable[1] = 0 | memTable[1] = 16
+ NAME: 2 | inserting avail_at = 0
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 18
+ counttable[1] = 0 | memTable[1] = 16
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 19
+ counttable[1] = 1 | memTable[1] = 20
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 19
+ counttable[1] = 1 | memTable[1] = 20
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 0 | Servicing internal request from PE[1], row = 20, at 2
+ NAME: 0 | Forwarding request from PE[1], row = 20, at 2 to network
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 0 | SERVICE_REQUEST:
+ NETWORK 0 | Current INFO -> Requesting pu = 1, requested row = 20, at 2
+ NETWORK: 0 | memTable[0] = 17
+ NETWORK: 0 | memTable[1] = 14
+ NETWORK: 0 | memTable[2] = 15
+ NETWORK: 0 | memTable[3] = 13
+ NETWORK: 0 | memTable[4] = 18
+ NETWORK: 0 | memTable[5] = 16
+ NETWORK: 0 | memTable[6] = 19
+ NETWORK: 0 | memTable[7] = 20
+ NETWORK: 0 | Found row at pu[3] | auto_req = 0
+ NETWORK: 0 | CORSS_INFO: reqPE = 1, reqNet = 3, reqRow = 20, reqAt = 2 | dest_pu = 3 | auto_req = 0, auto_row = 0
+ NETWORK: 0 | Forwarding request from pu[1] for row[20] at 2 to dest_pu[3] | auto_req = 0 | req_fail = 0
+ NETWORK: 0 | Dropping mem request from pu[1] for row[20] at 2 | dest_pu[3]
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 1
+ RUN_PU: pu[0] finished computation | pus_done = 3
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 20 , ACCESS(row, 1) = 0
+ NAME: 1 | Global flush = 1
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 18
+ counttable[1] = 0 | memTable[1] = 16
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 18
+ counttable[1] = 0 | memTable[1] = 16
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 19
+ counttable[1] = 1 | memTable[1] = 20
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 19
+ counttable[1] = 1 | memTable[1] = 20
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | Servicing external request from PE[1], row[20] at 2 | req_fail = 0
+ NAME: 3 | Row found in PE[3] mem[1]
+ NAME: 3 | ext_count = 1 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NETWORK: 3 | Forwarding reply from pu[3] for row[20] at 2 to dest_pu[1]
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 1
+ NAME: 1 | Updating memTable from external Block replies for row 20 at 2 with count 2 | fetch_now = 20
+ NAME: 1 | Writing row[20] to memB[2] with count = 2 | count_set = 2, count_val = 2
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 20 , ACCESS(row, 1) = 0
+ NAME: 1 | Found row[20] at memTable[2] | fetch_count = 2
+ NAME: 1 | Global flush = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 1
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 18
+ counttable[1] = 0 | memTable[1] = 16
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 18
+ counttable[1] = 0 | memTable[1] = 16
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 19
+ counttable[1] = 1 | memTable[1] = 20
+ NAME: 3 | inserting avail_at = 1
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 19
+ counttable[1] = 0 | memTable[1] = 20
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ MAIN: Servicing requests/replies
+ NAME: 0 | FetchNext():
+ NAME: 0 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 0 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 0 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 17
+ counttable[1] = 0 | memTable[1] = 14
+ NAME: 0 | Request Row: avail_req.empty = 1
+ NAME: 1 | FetchNext():
+ NAME: 1 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 1 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 1 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 15
+ counttable[1] = 0 | memTable[1] = 13
+ NAME: 1 | Request Row: avail_req.empty = 1
+ RUN_PU: pu[1] finished computation | pus_done = 4
+ NAME: 2 | FetchNext():
+ NAME: 2 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 2 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 2 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 18
+ counttable[1] = 0 | memTable[1] = 16
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 18
+ counttable[1] = 0 | memTable[1] = 16
+ NAME: 2 | Request Row: avail_req.empty = 1
+ NAME: 3 | FetchNext():
+ NAME: 3 | ACCESS(row, 0) = 0 , ACCESS(row, 1) = 0
+ NAME: 3 | Setup_fetch(): fetch_indA_0 = 0, fetch_indA_1 = 0, mult_dataA_0 = 0, mult_dataA_1 = 0
+
+ NAME: 3 | UPDATE_COUNT:
+ COUNTTABLE_OLD: 
+
+ counttable[0] = 0 | memTable[0] = 19
+ counttable[1] = 0 | memTable[1] = 20
+ COUNTTABLE_NEW: 
+
+ counttable[0] = 0 | memTable[0] = 19
+ counttable[1] = 0 | memTable[1] = 20
+ NAME: 3 | Request Row: avail_req.empty = 1
+ NAME: 0 | int_count = 2
+ NAME: 0 | serv_ext_full = 0
+ NAME: 0 | ext_count = 2 | count_reset_loc = 2
+ NAME: 1 | int_count = 2
+ NAME: 1 | serv_ext_full = 0
+ NAME: 1 | ext_count = 2 | count_reset_loc = 2
+ NAME: 2 | int_count = 2
+ NAME: 2 | serv_ext_full = 0
+ NAME: 2 | ext_count = 2 | count_reset_loc = 2
+ NAME: 3 | int_count = 2
+ NAME: 3 | serv_ext_full = 0
+ NAME: 3 | ext_count = 2 | count_reset_loc = 2
+ RUN_PU: Copying tmp_out[0] of len = 19 to matC_mem
+ RUN_PU: Copying tmp_out[1] of len = 20 to matC_mem
+ RUN_PU: Copying tmp_out[2] of len = 20 to matC_mem
+ RUN_PU: Copying tmp_out[3] of len = 20 to matC_mem

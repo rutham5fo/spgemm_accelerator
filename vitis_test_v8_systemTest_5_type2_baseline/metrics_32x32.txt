@@ -1,0 +1,5 @@
+Mat_num = 7		| Density(%) = 60		| Valid(bool) = 1		| cycles = 565		| runtime(mili_sec) = 332		| memory_access_count = 577
+Mat_num = 8		| Density(%) = 70		| Valid(bool) = 1		| cycles = 629		| runtime(mili_sec) = 349		| memory_access_count = 673
+Mat_num = 9		| Density(%) = 80		| Valid(bool) = 1		| cycles = 693		| runtime(mili_sec) = 410		| memory_access_count = 769
+Mat_num = 10		| Density(%) = 90		| Valid(bool) = 1		| cycles = 757		| runtime(mili_sec) = 447		| memory_access_count = 865
+Mat_num = 11		| Density(%) = 100		| Valid(bool) = 1		| cycles = 801		| runtime(mili_sec) = 506		| memory_access_count = 961
